@@ -25,6 +25,4 @@ Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 USB_DEVICE/App \
 USB_DEVICE/Target \
 user \
-user_common_libs \
-user_stm32l1xx_libs \
 

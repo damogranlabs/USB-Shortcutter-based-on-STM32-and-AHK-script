@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  0001b344  00000000  00000000  0003a6a0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00011d4e  00000000  00000000  000559e4  2**0
+ 17 .debug_line   00011cc5  00000000  00000000  000559e4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0008d858  00000000  00000000  00067732  2**0
+ 18 .debug_str    0008d812  00000000  00000000  000676a9  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000f4f8a  2**0
+ 19 .comment      0000007b  00000000  00000000  000f4ebb  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004028  00000000  00000000  000f5008  2**2
+ 20 .debug_frame  00004028  00000000  00000000  000f4f38  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1708,12 +1708,12 @@ __STATIC_INLINE void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
  8000f2e:	4770      	bx	lr
 
 08000f30 <main>:
-
 /**
- * @brief  The application entry point.
- * @retval int
- */
-int main(void) {
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
  8000f30:	b580      	push	{r7, lr}
  8000f32:	b082      	sub	sp, #8
  8000f34:	af00      	add	r7, sp, #0
@@ -1750,7 +1750,7 @@ int main(void) {
   if (ring_buffer_init(&key_press_buff, KEY_PRESS_BUFF_SIZE) != RB_OK) Error_Handler();
  8000f4e:	2114      	movs	r1, #20
  8000f50:	4826      	ldr	r0, [pc, #152]	; (8000fec <main+0xbc>)
- 8000f52:	f005 f98f 	bl	8006274 <ring_buffer_init>
+ 8000f52:	f005 fa4b 	bl	80063ec <ring_buffer_init>
  8000f56:	4603      	mov	r3, r0
  8000f58:	2b00      	cmp	r3, #0
  8000f5a:	d001      	beq.n	8000f60 <main+0x30>
@@ -1760,52 +1760,52 @@ int main(void) {
  8000f60:	2200      	movs	r2, #0
  8000f62:	2102      	movs	r1, #2
  8000f64:	4822      	ldr	r0, [pc, #136]	; (8000ff0 <main+0xc0>)
- 8000f66:	f005 f91b 	bl	80061a0 <register_button>
+ 8000f66:	f005 f8c1 	bl	80060ec <register_button>
   register_button(B2_GPIO_Port, B2_Pin, BTN_MODE_SINGLEPRESS);
  8000f6a:	2200      	movs	r2, #0
  8000f6c:	2104      	movs	r1, #4
  8000f6e:	4820      	ldr	r0, [pc, #128]	; (8000ff0 <main+0xc0>)
- 8000f70:	f005 f916 	bl	80061a0 <register_button>
+ 8000f70:	f005 f8bc 	bl	80060ec <register_button>
   register_button(B3_GPIO_Port, B3_Pin, BTN_MODE_SINGLEPRESS);
  8000f74:	2200      	movs	r2, #0
  8000f76:	2108      	movs	r1, #8
  8000f78:	481d      	ldr	r0, [pc, #116]	; (8000ff0 <main+0xc0>)
- 8000f7a:	f005 f911 	bl	80061a0 <register_button>
+ 8000f7a:	f005 f8b7 	bl	80060ec <register_button>
   register_button(B4_GPIO_Port, B4_Pin, BTN_MODE_SINGLEPRESS);
  8000f7e:	2200      	movs	r2, #0
  8000f80:	2101      	movs	r1, #1
  8000f82:	481c      	ldr	r0, [pc, #112]	; (8000ff4 <main+0xc4>)
- 8000f84:	f005 f90c 	bl	80061a0 <register_button>
+ 8000f84:	f005 f8b2 	bl	80060ec <register_button>
   register_button(B5_GPIO_Port, B5_Pin, BTN_MODE_SINGLEPRESS);
  8000f88:	2200      	movs	r2, #0
  8000f8a:	2102      	movs	r1, #2
  8000f8c:	4819      	ldr	r0, [pc, #100]	; (8000ff4 <main+0xc4>)
- 8000f8e:	f005 f907 	bl	80061a0 <register_button>
+ 8000f8e:	f005 f8ad 	bl	80060ec <register_button>
   register_button(B6_GPIO_Port, B6_Pin, BTN_MODE_SINGLEPRESS);
  8000f92:	2200      	movs	r2, #0
  8000f94:	2104      	movs	r1, #4
  8000f96:	4817      	ldr	r0, [pc, #92]	; (8000ff4 <main+0xc4>)
- 8000f98:	f005 f902 	bl	80061a0 <register_button>
+ 8000f98:	f005 f8a8 	bl	80060ec <register_button>
   register_button(B7_GPIO_Port, B7_Pin, BTN_MODE_SINGLEPRESS);
  8000f9c:	2200      	movs	r2, #0
  8000f9e:	2108      	movs	r1, #8
  8000fa0:	4814      	ldr	r0, [pc, #80]	; (8000ff4 <main+0xc4>)
- 8000fa2:	f005 f8fd 	bl	80061a0 <register_button>
+ 8000fa2:	f005 f8a3 	bl	80060ec <register_button>
 
   register_button(S3_GPIO_Port, S3_Pin, BTN_MODE_SINGLEPRESS);
  8000fa6:	2200      	movs	r2, #0
  8000fa8:	2101      	movs	r1, #1
  8000faa:	4813      	ldr	r0, [pc, #76]	; (8000ff8 <main+0xc8>)
- 8000fac:	f005 f8f8 	bl	80061a0 <register_button>
+ 8000fac:	f005 f89e 	bl	80060ec <register_button>
   register_button(S4_GPIO_Port, S4_Pin, BTN_MODE_SINGLEPRESS);
  8000fb0:	2200      	movs	r2, #0
  8000fb2:	2102      	movs	r1, #2
  8000fb4:	4810      	ldr	r0, [pc, #64]	; (8000ff8 <main+0xc8>)
- 8000fb6:	f005 f8f3 	bl	80061a0 <register_button>
+ 8000fb6:	f005 f899 	bl	80060ec <register_button>
 
   printString("System initialized.");
  8000fba:	4810      	ldr	r0, [pc, #64]	; (8000ffc <main+0xcc>)
- 8000fbc:	f005 fa84 	bl	80064c8 <printString>
+ 8000fbc:	f005 fb40 	bl	8006640 <printString>
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -1829,9 +1829,9 @@ int main(void) {
     }
 
     handle_buttons();
- 8000fe2:	f005 f833 	bl	800604c <handle_buttons>
+ 8000fe2:	f004 ffd9 	bl	8005f98 <handle_buttons>
     handle_usb();
- 8000fe6:	f004 ffd7 	bl	8005f98 <handle_usb>
+ 8000fe6:	f005 fb89 	bl	80066fc <handle_usb>
      if (HAL_GetTick() > next_toggle_time) {
  8000fea:	e7e9      	b.n	8000fc0 <main+0x90>
  8000fec:	20000398 	.word	0x20000398
@@ -1841,12 +1841,12 @@ int main(void) {
  8000ffc:	08008270 	.word	0x08008270
 
 08001000 <SystemClock_Config>:
-
 /**
- * @brief System Clock Configuration
- * @retval None
- */
-void SystemClock_Config(void) {
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
  8001000:	b580      	push	{r7, lr}
  8001002:	af00      	add	r7, sp, #0
 
@@ -1857,12 +1857,13 @@ void SystemClock_Config(void) {
  8001008:	2001      	movs	r0, #1
  800100a:	f7ff ff3f 	bl	8000e8c <LL_FLASH_SetLatency>
 
-  if (LL_FLASH_GetLatency() != LL_FLASH_LATENCY_1) {
+  if(LL_FLASH_GetLatency() != LL_FLASH_LATENCY_1)
  800100e:	f7ff ff51 	bl	8000eb4 <LL_FLASH_GetLatency>
  8001012:	4603      	mov	r3, r0
  8001014:	2b01      	cmp	r3, #1
  8001016:	d001      	beq.n	800101c <SystemClock_Config+0x1c>
-    Error_Handler();
+  {
+  Error_Handler();  
  8001018:	f000 f840 	bl	800109c <Error_Handler>
   }
   LL_PWR_SetRegulVoltageScaling(LL_PWR_REGU_VOLTAGE_SCALE1);
@@ -1873,14 +1874,15 @@ void SystemClock_Config(void) {
   LL_RCC_HSE_Enable();
  8001028:	f7ff fe7a 	bl	8000d20 <LL_RCC_HSE_Enable>
 
-  /* Wait till HSE is ready */
-  while (LL_RCC_HSE_IsReady() != 1) {
+   /* Wait till HSE is ready */
+  while(LL_RCC_HSE_IsReady() != 1)
  800102c:	bf00      	nop
  800102e:	f7ff fe85 	bl	8000d3c <LL_RCC_HSE_IsReady>
  8001032:	4603      	mov	r3, r0
  8001034:	2b01      	cmp	r3, #1
  8001036:	d1fa      	bne.n	800102e <SystemClock_Config+0x2e>
-
+  {
+    
   }
   LL_RCC_PLL_ConfigDomain_SYS(LL_RCC_PLLSOURCE_HSE, LL_RCC_PLL_MUL_12, LL_RCC_PLL_DIV_3);
  8001038:	f44f 0200 	mov.w	r2, #8388608	; 0x800000
@@ -1890,14 +1892,15 @@ void SystemClock_Config(void) {
   LL_RCC_PLL_Enable();
  8001048:	f7ff fee6 	bl	8000e18 <LL_RCC_PLL_Enable>
 
-  /* Wait till PLL is ready */
-  while (LL_RCC_PLL_IsReady() != 1) {
+   /* Wait till PLL is ready */
+  while(LL_RCC_PLL_IsReady() != 1)
  800104c:	bf00      	nop
  800104e:	f7ff fef1 	bl	8000e34 <LL_RCC_PLL_IsReady>
  8001052:	4603      	mov	r3, r0
  8001054:	2b01      	cmp	r3, #1
  8001056:	d1fa      	bne.n	800104e <SystemClock_Config+0x4e>
-
+  {
+    
   }
   LL_RCC_SetAHBPrescaler(LL_RCC_SYSCLK_DIV_1);
  8001058:	2000      	movs	r0, #0
@@ -1912,27 +1915,29 @@ void SystemClock_Config(void) {
  800106a:	2003      	movs	r0, #3
  800106c:	f7ff fe78 	bl	8000d60 <LL_RCC_SetSysClkSource>
 
-  /* Wait till System clock is ready */
-  while (LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL) {
+   /* Wait till System clock is ready */
+  while(LL_RCC_GetSysClkSource() != LL_RCC_SYS_CLKSOURCE_STATUS_PLL)
  8001070:	bf00      	nop
  8001072:	f7ff fe89 	bl	8000d88 <LL_RCC_GetSysClkSource>
  8001076:	4603      	mov	r3, r0
  8001078:	2b0c      	cmp	r3, #12
  800107a:	d1fa      	bne.n	8001072 <SystemClock_Config+0x72>
-
+  {
+  
   }
   LL_SetSystemCoreClock(32000000);
  800107c:	4806      	ldr	r0, [pc, #24]	; (8001098 <SystemClock_Config+0x98>)
  800107e:	f003 f953 	bl	8004328 <LL_SetSystemCoreClock>
 
-  /* Update the time base */
-  if (HAL_InitTick(TICK_INT_PRIORITY) != HAL_OK) {
+   /* Update the time base */
+  if (HAL_InitTick (TICK_INT_PRIORITY) != HAL_OK)
  8001082:	2000      	movs	r0, #0
  8001084:	f000 fa8c 	bl	80015a0 <HAL_InitTick>
  8001088:	4603      	mov	r3, r0
  800108a:	2b00      	cmp	r3, #0
  800108c:	d001      	beq.n	8001092 <SystemClock_Config+0x92>
-    Error_Handler();
+  {
+    Error_Handler();  
  800108e:	f000 f805 	bl	800109c <Error_Handler>
   };
 }
@@ -1942,12 +1947,12 @@ void SystemClock_Config(void) {
  8001098:	01e84800 	.word	0x01e84800
 
 0800109c <Error_Handler>:
-
 /**
- * @brief  This function is executed in case of error occurrence.
- * @retval None
- */
-void Error_Handler(void) {
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
  800109c:	b480      	push	{r7}
  800109e:	af00      	add	r7, sp, #0
   /* USER CODE BEGIN Error_Handler_Debug */
@@ -1961,12 +1966,12 @@ void Error_Handler(void) {
  80010a6:	4770      	bx	lr
 
 080010a8 <assert_failed>:
- *         where the assert_param error has occurred.
- * @param  file: pointer to the source file name
- * @param  line: assert_param error line source number
- * @retval None
- */
-void assert_failed(uint8_t *file, uint32_t line) {
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{ 
  80010a8:	b480      	push	{r7}
  80010aa:	b083      	sub	sp, #12
  80010ac:	af00      	add	r7, sp, #0
@@ -15178,1374 +15183,1374 @@ USBD_StatusTypeDef USBD_Get_USB_Status(HAL_StatusTypeDef hal_status)
  8005f94:	4770      	bx	lr
  8005f96:	bf00      	nop
 
-08005f98 <handle_usb>:
-
-/*
- * Periodically send USB report frames.
- * If any keys are pressed == ring buffer length > 1, send key code. Otherwise, send 0x0.
- */
-void handle_usb(void) {
- 8005f98:	b580      	push	{r7, lr}
- 8005f9a:	b082      	sub	sp, #8
- 8005f9c:	af00      	add	r7, sp, #0
-  uint8_t buff_data[1];
-  if (HAL_GetTick() < next_send_timestamp) {
- 8005f9e:	f7fb fb4b 	bl	8001638 <HAL_GetTick>
- 8005fa2:	4602      	mov	r2, r0
- 8005fa4:	4b1a      	ldr	r3, [pc, #104]	; (8006010 <handle_usb+0x78>)
- 8005fa6:	681b      	ldr	r3, [r3, #0]
- 8005fa8:	429a      	cmp	r2, r3
- 8005faa:	d32d      	bcc.n	8006008 <handle_usb+0x70>
-    return;
-  }
-
-  rb_status_t rb_status = ring_buffer_get(&key_press_buff, buff_data, 1);
- 8005fac:	1d3b      	adds	r3, r7, #4
- 8005fae:	2201      	movs	r2, #1
- 8005fb0:	4619      	mov	r1, r3
- 8005fb2:	4818      	ldr	r0, [pc, #96]	; (8006014 <handle_usb+0x7c>)
- 8005fb4:	f000 f9f6 	bl	80063a4 <ring_buffer_get>
- 8005fb8:	4603      	mov	r3, r0
- 8005fba:	71fb      	strb	r3, [r7, #7]
-  if (rb_status == RB_OK) {
- 8005fbc:	79fb      	ldrb	r3, [r7, #7]
- 8005fbe:	2b00      	cmp	r3, #0
- 8005fc0:	d10b      	bne.n	8005fda <handle_usb+0x42>
-    data[0] = KEY_MOD_RCTRL | KEY_MOD_RSHIFT; // Modifier keys
- 8005fc2:	4b15      	ldr	r3, [pc, #84]	; (8006018 <handle_usb+0x80>)
- 8005fc4:	2230      	movs	r2, #48	; 0x30
- 8005fc6:	701a      	strb	r2, [r3, #0]
-
-    data[2] = buff_data[0]; // keycode 1
- 8005fc8:	793a      	ldrb	r2, [r7, #4]
- 8005fca:	4b13      	ldr	r3, [pc, #76]	; (8006018 <handle_usb+0x80>)
- 8005fcc:	709a      	strb	r2, [r3, #2]
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
- 8005fce:	2208      	movs	r2, #8
- 8005fd0:	4911      	ldr	r1, [pc, #68]	; (8006018 <handle_usb+0x80>)
- 8005fd2:	4812      	ldr	r0, [pc, #72]	; (800601c <handle_usb+0x84>)
- 8005fd4:	f7fe fb26 	bl	8004624 <USBD_CUSTOM_HID_SendReport>
- 8005fd8:	e00f      	b.n	8005ffa <handle_usb+0x62>
-  }
-  else {
-    data[0] = KEY_NONE; // Modifier keys
- 8005fda:	4b0f      	ldr	r3, [pc, #60]	; (8006018 <handle_usb+0x80>)
- 8005fdc:	2200      	movs	r2, #0
- 8005fde:	701a      	strb	r2, [r3, #0]
-    data[2] = KEY_NONE; // keycode 1
- 8005fe0:	4b0d      	ldr	r3, [pc, #52]	; (8006018 <handle_usb+0x80>)
- 8005fe2:	2200      	movs	r2, #0
- 8005fe4:	709a      	strb	r2, [r3, #2]
-    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
- 8005fe6:	2208      	movs	r2, #8
- 8005fe8:	490b      	ldr	r1, [pc, #44]	; (8006018 <handle_usb+0x80>)
- 8005fea:	480c      	ldr	r0, [pc, #48]	; (800601c <handle_usb+0x84>)
- 8005fec:	f7fe fb1a 	bl	8004624 <USBD_CUSTOM_HID_SendReport>
-
-    if (rb_status == RB_ERROR) {
- 8005ff0:	79fb      	ldrb	r3, [r7, #7]
- 8005ff2:	2b01      	cmp	r3, #1
- 8005ff4:	d101      	bne.n	8005ffa <handle_usb+0x62>
-      Error_Handler();
- 8005ff6:	f7fb f851 	bl	800109c <Error_Handler>
-    }
-  }
-
-  next_send_timestamp = HAL_GetTick() + CUSTOM_HID_FS_BINTERVAL;
- 8005ffa:	f7fb fb1d 	bl	8001638 <HAL_GetTick>
- 8005ffe:	4603      	mov	r3, r0
- 8006000:	3305      	adds	r3, #5
- 8006002:	4a03      	ldr	r2, [pc, #12]	; (8006010 <handle_usb+0x78>)
- 8006004:	6013      	str	r3, [r2, #0]
- 8006006:	e000      	b.n	800600a <handle_usb+0x72>
-    return;
- 8006008:	bf00      	nop
-
-}
- 800600a:	3708      	adds	r7, #8
- 800600c:	46bd      	mov	sp, r7
- 800600e:	bd80      	pop	{r7, pc}
- 8006010:	20000380 	.word	0x20000380
- 8006014:	20000398 	.word	0x20000398
- 8006018:	20000384 	.word	0x20000384
- 800601c:	200003b4 	.word	0x200003b4
-
-08006020 <usb_send_button_press>:
-
-/*
- * Add button action to USB buffer, which is handled by handle_usb().
- */
-void usb_send_button_press(uint8_t btn_num) {
- 8006020:	b580      	push	{r7, lr}
- 8006022:	b082      	sub	sp, #8
- 8006024:	af00      	add	r7, sp, #0
- 8006026:	4603      	mov	r3, r0
- 8006028:	71fb      	strb	r3, [r7, #7]
-  btn_num = btn_num + BASE_KEY_NUM;
- 800602a:	79fb      	ldrb	r3, [r7, #7]
- 800602c:	3368      	adds	r3, #104	; 0x68
- 800602e:	b2db      	uxtb	r3, r3
- 8006030:	71fb      	strb	r3, [r7, #7]
-
-  ring_buffer_put(&key_press_buff, (uint8_t*) &btn_num, 1);
- 8006032:	1dfb      	adds	r3, r7, #7
- 8006034:	2201      	movs	r2, #1
- 8006036:	4619      	mov	r1, r3
- 8006038:	4803      	ldr	r0, [pc, #12]	; (8006048 <usb_send_button_press+0x28>)
- 800603a:	f000 f948 	bl	80062ce <ring_buffer_put>
-}
- 800603e:	bf00      	nop
- 8006040:	3708      	adds	r7, #8
- 8006042:	46bd      	mov	sp, r7
- 8006044:	bd80      	pop	{r7, pc}
- 8006046:	bf00      	nop
- 8006048:	20000398 	.word	0x20000398
-
-0800604c <handle_buttons>:
+08005f98 <handle_buttons>:
  * @brief Handle buttons state. This function must be periodically called in a main while loop.
  *        This function calls event callbacks in buttons_user.c
  * @param None
  * @retval None
  */
 void handle_buttons(void) {
- 800604c:	b580      	push	{r7, lr}
- 800604e:	b084      	sub	sp, #16
- 8006050:	af00      	add	r7, sp, #0
+ 8005f98:	b580      	push	{r7, lr}
+ 8005f9a:	b084      	sub	sp, #16
+ 8005f9c:	af00      	add	r7, sp, #0
   uint8_t btn_num;
   btn_phy_state_t phy_state;
   button_t *btn;
   uint32_t timestamp = HAL_GetTick();
- 8006052:	f7fb faf1 	bl	8001638 <HAL_GetTick>
- 8006056:	60b8      	str	r0, [r7, #8]
+ 8005f9e:	f7fb fb4b 	bl	8001638 <HAL_GetTick>
+ 8005fa2:	60b8      	str	r0, [r7, #8]
 
   for (btn_num = 0; btn_num < _num_of_registered_buttons; btn_num++) {
- 8006058:	2300      	movs	r3, #0
- 800605a:	73fb      	strb	r3, [r7, #15]
- 800605c:	e092      	b.n	8006184 <handle_buttons+0x138>
+ 8005fa4:	2300      	movs	r3, #0
+ 8005fa6:	73fb      	strb	r3, [r7, #15]
+ 8005fa8:	e092      	b.n	80060d0 <handle_buttons+0x138>
     btn = &_buttons[btn_num];
- 800605e:	7bfa      	ldrb	r2, [r7, #15]
- 8006060:	4613      	mov	r3, r2
- 8006062:	005b      	lsls	r3, r3, #1
- 8006064:	4413      	add	r3, r2
- 8006066:	00db      	lsls	r3, r3, #3
- 8006068:	4a4b      	ldr	r2, [pc, #300]	; (8006198 <handle_buttons+0x14c>)
- 800606a:	4413      	add	r3, r2
- 800606c:	607b      	str	r3, [r7, #4]
+ 8005faa:	7bfa      	ldrb	r2, [r7, #15]
+ 8005fac:	4613      	mov	r3, r2
+ 8005fae:	005b      	lsls	r3, r3, #1
+ 8005fb0:	4413      	add	r3, r2
+ 8005fb2:	00db      	lsls	r3, r3, #3
+ 8005fb4:	4a4b      	ldr	r2, [pc, #300]	; (80060e4 <handle_buttons+0x14c>)
+ 8005fb6:	4413      	add	r3, r2
+ 8005fb8:	607b      	str	r3, [r7, #4]
     phy_state = get_button_pin_state(&btn->button_cfg);
- 800606e:	687b      	ldr	r3, [r7, #4]
- 8006070:	4618      	mov	r0, r3
- 8006072:	f000 fa45 	bl	8006500 <get_button_pin_state>
- 8006076:	4603      	mov	r3, r0
- 8006078:	70fb      	strb	r3, [r7, #3]
+ 8005fba:	687b      	ldr	r3, [r7, #4]
+ 8005fbc:	4618      	mov	r0, r3
+ 8005fbe:	f000 f90a 	bl	80061d6 <get_button_pin_state>
+ 8005fc2:	4603      	mov	r3, r0
+ 8005fc4:	70fb      	strb	r3, [r7, #3]
     btn->button_phy_state = phy_state;
- 800607a:	687b      	ldr	r3, [r7, #4]
- 800607c:	78fa      	ldrb	r2, [r7, #3]
- 800607e:	735a      	strb	r2, [r3, #13]
+ 8005fc6:	687b      	ldr	r3, [r7, #4]
+ 8005fc8:	78fa      	ldrb	r2, [r7, #3]
+ 8005fca:	735a      	strb	r2, [r3, #13]
 
     if (btn->first_change_timestamp == 0) {
- 8006080:	687b      	ldr	r3, [r7, #4]
- 8006082:	691b      	ldr	r3, [r3, #16]
- 8006084:	2b00      	cmp	r3, #0
- 8006086:	d10c      	bne.n	80060a2 <handle_buttons+0x56>
+ 8005fcc:	687b      	ldr	r3, [r7, #4]
+ 8005fce:	691b      	ldr	r3, [r3, #16]
+ 8005fd0:	2b00      	cmp	r3, #0
+ 8005fd2:	d10c      	bne.n	8005fee <handle_buttons+0x56>
       // no active tracking for this button
       if (phy_state == BTN_PHY_ACTIVE) {
- 8006088:	78fb      	ldrb	r3, [r7, #3]
- 800608a:	2b01      	cmp	r3, #1
- 800608c:	d177      	bne.n	800617e <handle_buttons+0x132>
+ 8005fd4:	78fb      	ldrb	r3, [r7, #3]
+ 8005fd6:	2b01      	cmp	r3, #1
+ 8005fd8:	d177      	bne.n	80060ca <handle_buttons+0x132>
         if (timestamp > (btn->last_event_timestamp + BTN_AFTER_PRESS_TIME_MS)) {
- 800608e:	687b      	ldr	r3, [r7, #4]
- 8006090:	695b      	ldr	r3, [r3, #20]
- 8006092:	330f      	adds	r3, #15
- 8006094:	68ba      	ldr	r2, [r7, #8]
- 8006096:	429a      	cmp	r2, r3
- 8006098:	d971      	bls.n	800617e <handle_buttons+0x132>
+ 8005fda:	687b      	ldr	r3, [r7, #4]
+ 8005fdc:	695b      	ldr	r3, [r3, #20]
+ 8005fde:	330f      	adds	r3, #15
+ 8005fe0:	68ba      	ldr	r2, [r7, #8]
+ 8005fe2:	429a      	cmp	r2, r3
+ 8005fe4:	d971      	bls.n	80060ca <handle_buttons+0x132>
           // first pulse after IDLE state
           btn->first_change_timestamp = timestamp;
- 800609a:	687b      	ldr	r3, [r7, #4]
- 800609c:	68ba      	ldr	r2, [r7, #8]
- 800609e:	611a      	str	r2, [r3, #16]
- 80060a0:	e06d      	b.n	800617e <handle_buttons+0x132>
+ 8005fe6:	687b      	ldr	r3, [r7, #4]
+ 8005fe8:	68ba      	ldr	r2, [r7, #8]
+ 8005fea:	611a      	str	r2, [r3, #16]
+ 8005fec:	e06d      	b.n	80060ca <handle_buttons+0x132>
         }
       }
     }
     else {
       // button timestamp exists, check state and time
       if (phy_state == BTN_PHY_ACTIVE) {
- 80060a2:	78fb      	ldrb	r3, [r7, #3]
- 80060a4:	2b01      	cmp	r3, #1
- 80060a6:	d14c      	bne.n	8006142 <handle_buttons+0xf6>
+ 8005fee:	78fb      	ldrb	r3, [r7, #3]
+ 8005ff0:	2b01      	cmp	r3, #1
+ 8005ff2:	d14c      	bne.n	800608e <handle_buttons+0xf6>
         switch (btn->button_state) {
- 80060a8:	687b      	ldr	r3, [r7, #4]
- 80060aa:	7b1b      	ldrb	r3, [r3, #12]
- 80060ac:	2b00      	cmp	r3, #0
- 80060ae:	d002      	beq.n	80060b6 <handle_buttons+0x6a>
- 80060b0:	2b01      	cmp	r3, #1
- 80060b2:	d015      	beq.n	80060e0 <handle_buttons+0x94>
+ 8005ff4:	687b      	ldr	r3, [r7, #4]
+ 8005ff6:	7b1b      	ldrb	r3, [r3, #12]
+ 8005ff8:	2b00      	cmp	r3, #0
+ 8005ffa:	d002      	beq.n	8006002 <handle_buttons+0x6a>
+ 8005ffc:	2b01      	cmp	r3, #1
+ 8005ffe:	d015      	beq.n	800602c <handle_buttons+0x94>
             }
             break;
 
           case BTN_STATE_LONGPRESS: //long press mode is not repetitive
           default:
             break;
- 80060b4:	e063      	b.n	800617e <handle_buttons+0x132>
+ 8006000:	e063      	b.n	80060ca <handle_buttons+0x132>
             if (timestamp > (btn->first_change_timestamp + BTN_PRESS_TIME_MS)) {
- 80060b6:	687b      	ldr	r3, [r7, #4]
- 80060b8:	691b      	ldr	r3, [r3, #16]
- 80060ba:	331e      	adds	r3, #30
- 80060bc:	68ba      	ldr	r2, [r7, #8]
- 80060be:	429a      	cmp	r2, r3
- 80060c0:	d95a      	bls.n	8006178 <handle_buttons+0x12c>
+ 8006002:	687b      	ldr	r3, [r7, #4]
+ 8006004:	691b      	ldr	r3, [r3, #16]
+ 8006006:	331e      	adds	r3, #30
+ 8006008:	68ba      	ldr	r2, [r7, #8]
+ 800600a:	429a      	cmp	r2, r3
+ 800600c:	d95a      	bls.n	80060c4 <handle_buttons+0x12c>
               btn->button_state = BTN_STATE_PRESS;
- 80060c2:	687b      	ldr	r3, [r7, #4]
- 80060c4:	2201      	movs	r2, #1
- 80060c6:	731a      	strb	r2, [r3, #12]
+ 800600e:	687b      	ldr	r3, [r7, #4]
+ 8006010:	2201      	movs	r2, #1
+ 8006012:	731a      	strb	r2, [r3, #12]
               on_button_press(btn->button_cfg.gpio_port, btn->button_cfg.gpio_pin);
- 80060c8:	687b      	ldr	r3, [r7, #4]
- 80060ca:	681a      	ldr	r2, [r3, #0]
- 80060cc:	687b      	ldr	r3, [r7, #4]
- 80060ce:	685b      	ldr	r3, [r3, #4]
- 80060d0:	4619      	mov	r1, r3
- 80060d2:	4610      	mov	r0, r2
- 80060d4:	f000 fa2e 	bl	8006534 <on_button_press>
+ 8006014:	687b      	ldr	r3, [r7, #4]
+ 8006016:	681a      	ldr	r2, [r3, #0]
+ 8006018:	687b      	ldr	r3, [r7, #4]
+ 800601a:	685b      	ldr	r3, [r3, #4]
+ 800601c:	4619      	mov	r1, r3
+ 800601e:	4610      	mov	r0, r2
+ 8006020:	f000 f8f2 	bl	8006208 <on_button_press>
               btn->last_event_timestamp = timestamp;
- 80060d8:	687b      	ldr	r3, [r7, #4]
- 80060da:	68ba      	ldr	r2, [r7, #8]
- 80060dc:	615a      	str	r2, [r3, #20]
+ 8006024:	687b      	ldr	r3, [r7, #4]
+ 8006026:	68ba      	ldr	r2, [r7, #8]
+ 8006028:	615a      	str	r2, [r3, #20]
             break;
- 80060de:	e04b      	b.n	8006178 <handle_buttons+0x12c>
+ 800602a:	e04b      	b.n	80060c4 <handle_buttons+0x12c>
             if (btn->button_cfg.press_mode == BTN_MODE_LONGPRESS) {
- 80060e0:	687b      	ldr	r3, [r7, #4]
- 80060e2:	7a1b      	ldrb	r3, [r3, #8]
- 80060e4:	2b02      	cmp	r3, #2
- 80060e6:	d115      	bne.n	8006114 <handle_buttons+0xc8>
+ 800602c:	687b      	ldr	r3, [r7, #4]
+ 800602e:	7a1b      	ldrb	r3, [r3, #8]
+ 8006030:	2b02      	cmp	r3, #2
+ 8006032:	d115      	bne.n	8006060 <handle_buttons+0xc8>
               if (timestamp > (btn->first_change_timestamp + BTN_LONGPRESS_TIME_MS)) {
- 80060e8:	687b      	ldr	r3, [r7, #4]
- 80060ea:	691b      	ldr	r3, [r3, #16]
- 80060ec:	f503 63fa 	add.w	r3, r3, #2000	; 0x7d0
- 80060f0:	68ba      	ldr	r2, [r7, #8]
- 80060f2:	429a      	cmp	r2, r3
- 80060f4:	d942      	bls.n	800617c <handle_buttons+0x130>
+ 8006034:	687b      	ldr	r3, [r7, #4]
+ 8006036:	691b      	ldr	r3, [r3, #16]
+ 8006038:	f503 63fa 	add.w	r3, r3, #2000	; 0x7d0
+ 800603c:	68ba      	ldr	r2, [r7, #8]
+ 800603e:	429a      	cmp	r2, r3
+ 8006040:	d942      	bls.n	80060c8 <handle_buttons+0x130>
                 btn->button_state = BTN_STATE_LONGPRESS;
- 80060f6:	687b      	ldr	r3, [r7, #4]
- 80060f8:	2202      	movs	r2, #2
- 80060fa:	731a      	strb	r2, [r3, #12]
+ 8006042:	687b      	ldr	r3, [r7, #4]
+ 8006044:	2202      	movs	r2, #2
+ 8006046:	731a      	strb	r2, [r3, #12]
                 on_button_longpress(btn->button_cfg.gpio_port, btn->button_cfg.gpio_pin);
- 80060fc:	687b      	ldr	r3, [r7, #4]
- 80060fe:	681a      	ldr	r2, [r3, #0]
- 8006100:	687b      	ldr	r3, [r7, #4]
- 8006102:	685b      	ldr	r3, [r3, #4]
- 8006104:	4619      	mov	r1, r3
- 8006106:	4610      	mov	r0, r2
- 8006108:	f000 faa4 	bl	8006654 <on_button_longpress>
+ 8006048:	687b      	ldr	r3, [r7, #4]
+ 800604a:	681a      	ldr	r2, [r3, #0]
+ 800604c:	687b      	ldr	r3, [r7, #4]
+ 800604e:	685b      	ldr	r3, [r3, #4]
+ 8006050:	4619      	mov	r1, r3
+ 8006052:	4610      	mov	r0, r2
+ 8006054:	f000 f968 	bl	8006328 <on_button_longpress>
                 btn->last_event_timestamp = timestamp;
- 800610c:	687b      	ldr	r3, [r7, #4]
- 800610e:	68ba      	ldr	r2, [r7, #8]
- 8006110:	615a      	str	r2, [r3, #20]
+ 8006058:	687b      	ldr	r3, [r7, #4]
+ 800605a:	68ba      	ldr	r2, [r7, #8]
+ 800605c:	615a      	str	r2, [r3, #20]
             break;
- 8006112:	e033      	b.n	800617c <handle_buttons+0x130>
+ 800605e:	e033      	b.n	80060c8 <handle_buttons+0x130>
             else if (btn->button_cfg.press_mode == BTN_MODE_REPETITIVE) {
- 8006114:	687b      	ldr	r3, [r7, #4]
- 8006116:	7a1b      	ldrb	r3, [r3, #8]
- 8006118:	2b01      	cmp	r3, #1
- 800611a:	d12f      	bne.n	800617c <handle_buttons+0x130>
+ 8006060:	687b      	ldr	r3, [r7, #4]
+ 8006062:	7a1b      	ldrb	r3, [r3, #8]
+ 8006064:	2b01      	cmp	r3, #1
+ 8006066:	d12f      	bne.n	80060c8 <handle_buttons+0x130>
               if (timestamp > (btn->last_event_timestamp + BTN_REPETITIVE_PRESS_TIME_MS)) {
- 800611c:	687b      	ldr	r3, [r7, #4]
- 800611e:	695b      	ldr	r3, [r3, #20]
- 8006120:	f503 73fa 	add.w	r3, r3, #500	; 0x1f4
- 8006124:	68ba      	ldr	r2, [r7, #8]
- 8006126:	429a      	cmp	r2, r3
- 8006128:	d928      	bls.n	800617c <handle_buttons+0x130>
+ 8006068:	687b      	ldr	r3, [r7, #4]
+ 800606a:	695b      	ldr	r3, [r3, #20]
+ 800606c:	f503 73fa 	add.w	r3, r3, #500	; 0x1f4
+ 8006070:	68ba      	ldr	r2, [r7, #8]
+ 8006072:	429a      	cmp	r2, r3
+ 8006074:	d928      	bls.n	80060c8 <handle_buttons+0x130>
                 on_button_press(btn->button_cfg.gpio_port, btn->button_cfg.gpio_pin);
- 800612a:	687b      	ldr	r3, [r7, #4]
- 800612c:	681a      	ldr	r2, [r3, #0]
- 800612e:	687b      	ldr	r3, [r7, #4]
- 8006130:	685b      	ldr	r3, [r3, #4]
- 8006132:	4619      	mov	r1, r3
- 8006134:	4610      	mov	r0, r2
- 8006136:	f000 f9fd 	bl	8006534 <on_button_press>
+ 8006076:	687b      	ldr	r3, [r7, #4]
+ 8006078:	681a      	ldr	r2, [r3, #0]
+ 800607a:	687b      	ldr	r3, [r7, #4]
+ 800607c:	685b      	ldr	r3, [r3, #4]
+ 800607e:	4619      	mov	r1, r3
+ 8006080:	4610      	mov	r0, r2
+ 8006082:	f000 f8c1 	bl	8006208 <on_button_press>
                 btn->last_event_timestamp = timestamp;
- 800613a:	687b      	ldr	r3, [r7, #4]
- 800613c:	68ba      	ldr	r2, [r7, #8]
- 800613e:	615a      	str	r2, [r3, #20]
+ 8006086:	687b      	ldr	r3, [r7, #4]
+ 8006088:	68ba      	ldr	r2, [r7, #8]
+ 800608a:	615a      	str	r2, [r3, #20]
             break;
- 8006140:	e01c      	b.n	800617c <handle_buttons+0x130>
+ 800608c:	e01c      	b.n	80060c8 <handle_buttons+0x130>
         }
       }
       else {
         // button is not pressed: could be glitch to debounce it or button release
         //is not active, but start timestamp exists - debounce if state != IDLE
         if (btn->button_state == BTN_STATE_IDLE) {
- 8006142:	687b      	ldr	r3, [r7, #4]
- 8006144:	7b1b      	ldrb	r3, [r3, #12]
- 8006146:	2b00      	cmp	r3, #0
- 8006148:	d10c      	bne.n	8006164 <handle_buttons+0x118>
+ 800608e:	687b      	ldr	r3, [r7, #4]
+ 8006090:	7b1b      	ldrb	r3, [r3, #12]
+ 8006092:	2b00      	cmp	r3, #0
+ 8006094:	d10c      	bne.n	80060b0 <handle_buttons+0x118>
           // pulses to debounce on button press or other button line spikes
           if (timestamp > (btn->first_change_timestamp + BTN_PRESS_TIME_MS)) {
- 800614a:	687b      	ldr	r3, [r7, #4]
- 800614c:	691b      	ldr	r3, [r3, #16]
- 800614e:	331e      	adds	r3, #30
- 8006150:	68ba      	ldr	r2, [r7, #8]
- 8006152:	429a      	cmp	r2, r3
- 8006154:	d913      	bls.n	800617e <handle_buttons+0x132>
+ 8006096:	687b      	ldr	r3, [r7, #4]
+ 8006098:	691b      	ldr	r3, [r3, #16]
+ 800609a:	331e      	adds	r3, #30
+ 800609c:	68ba      	ldr	r2, [r7, #8]
+ 800609e:	429a      	cmp	r2, r3
+ 80060a0:	d913      	bls.n	80060ca <handle_buttons+0x132>
             // non-relevant glitches, discard current tracking.
             btn->first_change_timestamp = 0;
- 8006156:	687b      	ldr	r3, [r7, #4]
- 8006158:	2200      	movs	r2, #0
- 800615a:	611a      	str	r2, [r3, #16]
+ 80060a2:	687b      	ldr	r3, [r7, #4]
+ 80060a4:	2200      	movs	r2, #0
+ 80060a6:	611a      	str	r2, [r3, #16]
             btn->last_event_timestamp = timestamp; // avoid immediate re-trigger phy on on->off glitches
- 800615c:	687b      	ldr	r3, [r7, #4]
- 800615e:	68ba      	ldr	r2, [r7, #8]
- 8006160:	615a      	str	r2, [r3, #20]
- 8006162:	e00c      	b.n	800617e <handle_buttons+0x132>
+ 80060a8:	687b      	ldr	r3, [r7, #4]
+ 80060aa:	68ba      	ldr	r2, [r7, #8]
+ 80060ac:	615a      	str	r2, [r3, #20]
+ 80060ae:	e00c      	b.n	80060ca <handle_buttons+0x132>
           }
           // else: debounce
         }
         else {
           // state != IDLE, reset button tracking
           btn->button_state = BTN_STATE_IDLE;
- 8006164:	687b      	ldr	r3, [r7, #4]
- 8006166:	2200      	movs	r2, #0
- 8006168:	731a      	strb	r2, [r3, #12]
+ 80060b0:	687b      	ldr	r3, [r7, #4]
+ 80060b2:	2200      	movs	r2, #0
+ 80060b4:	731a      	strb	r2, [r3, #12]
           btn->first_change_timestamp = 0;
- 800616a:	687b      	ldr	r3, [r7, #4]
- 800616c:	2200      	movs	r2, #0
- 800616e:	611a      	str	r2, [r3, #16]
+ 80060b6:	687b      	ldr	r3, [r7, #4]
+ 80060b8:	2200      	movs	r2, #0
+ 80060ba:	611a      	str	r2, [r3, #16]
           btn->last_event_timestamp = timestamp; // avoid immediate re-trigger on phy on->off glitches
- 8006170:	687b      	ldr	r3, [r7, #4]
- 8006172:	68ba      	ldr	r2, [r7, #8]
- 8006174:	615a      	str	r2, [r3, #20]
- 8006176:	e002      	b.n	800617e <handle_buttons+0x132>
+ 80060bc:	687b      	ldr	r3, [r7, #4]
+ 80060be:	68ba      	ldr	r2, [r7, #8]
+ 80060c0:	615a      	str	r2, [r3, #20]
+ 80060c2:	e002      	b.n	80060ca <handle_buttons+0x132>
             break;
- 8006178:	bf00      	nop
- 800617a:	e000      	b.n	800617e <handle_buttons+0x132>
+ 80060c4:	bf00      	nop
+ 80060c6:	e000      	b.n	80060ca <handle_buttons+0x132>
             break;
- 800617c:	bf00      	nop
+ 80060c8:	bf00      	nop
   for (btn_num = 0; btn_num < _num_of_registered_buttons; btn_num++) {
- 800617e:	7bfb      	ldrb	r3, [r7, #15]
- 8006180:	3301      	adds	r3, #1
- 8006182:	73fb      	strb	r3, [r7, #15]
- 8006184:	4b05      	ldr	r3, [pc, #20]	; (800619c <handle_buttons+0x150>)
- 8006186:	781b      	ldrb	r3, [r3, #0]
- 8006188:	7bfa      	ldrb	r2, [r7, #15]
- 800618a:	429a      	cmp	r2, r3
- 800618c:	f4ff af67 	bcc.w	800605e <handle_buttons+0x12>
+ 80060ca:	7bfb      	ldrb	r3, [r7, #15]
+ 80060cc:	3301      	adds	r3, #1
+ 80060ce:	73fb      	strb	r3, [r7, #15]
+ 80060d0:	4b05      	ldr	r3, [pc, #20]	; (80060e8 <handle_buttons+0x150>)
+ 80060d2:	781b      	ldrb	r3, [r3, #0]
+ 80060d4:	7bfa      	ldrb	r2, [r7, #15]
+ 80060d6:	429a      	cmp	r2, r3
+ 80060d8:	f4ff af67 	bcc.w	8005faa <handle_buttons+0x12>
         }
       }
     }
   }
 }
- 8006190:	bf00      	nop
- 8006192:	3710      	adds	r7, #16
- 8006194:	46bd      	mov	sp, r7
- 8006196:	bd80      	pop	{r7, pc}
- 8006198:	20000abc 	.word	0x20000abc
- 800619c:	2000038c 	.word	0x2000038c
+ 80060dc:	bf00      	nop
+ 80060de:	3710      	adds	r7, #16
+ 80060e0:	46bd      	mov	sp, r7
+ 80060e2:	bd80      	pop	{r7, pc}
+ 80060e4:	20000abc 	.word	0x20000abc
+ 80060e8:	20000380 	.word	0x20000380
 
-080061a0 <register_button>:
+080060ec <register_button>:
  * @brief Add (register) button to a list of available buttons.
  * @param Registered button GPIO port.
  * @param Registered button GPIO pin.
  * @retval None
  */
 void register_button(BTN_GPIO_PORT_TYPE *port, BTN_GPIO_PIN_TYPE pin, btn_press_mode_t press_mode) {
- 80061a0:	b590      	push	{r4, r7, lr}
- 80061a2:	b085      	sub	sp, #20
- 80061a4:	af00      	add	r7, sp, #0
- 80061a6:	60f8      	str	r0, [r7, #12]
- 80061a8:	60b9      	str	r1, [r7, #8]
- 80061aa:	4613      	mov	r3, r2
- 80061ac:	71fb      	strb	r3, [r7, #7]
+ 80060ec:	b590      	push	{r4, r7, lr}
+ 80060ee:	b085      	sub	sp, #20
+ 80060f0:	af00      	add	r7, sp, #0
+ 80060f2:	60f8      	str	r0, [r7, #12]
+ 80060f4:	60b9      	str	r1, [r7, #8]
+ 80060f6:	4613      	mov	r3, r2
+ 80060f8:	71fb      	strb	r3, [r7, #7]
   _buttons[_num_of_registered_buttons].button_cfg.gpio_port = port;
- 80061ae:	4b2f      	ldr	r3, [pc, #188]	; (800626c <register_button+0xcc>)
- 80061b0:	781b      	ldrb	r3, [r3, #0]
- 80061b2:	4619      	mov	r1, r3
- 80061b4:	4a2e      	ldr	r2, [pc, #184]	; (8006270 <register_button+0xd0>)
- 80061b6:	460b      	mov	r3, r1
- 80061b8:	005b      	lsls	r3, r3, #1
- 80061ba:	440b      	add	r3, r1
- 80061bc:	00db      	lsls	r3, r3, #3
- 80061be:	4413      	add	r3, r2
- 80061c0:	68fa      	ldr	r2, [r7, #12]
- 80061c2:	601a      	str	r2, [r3, #0]
+ 80060fa:	4b2f      	ldr	r3, [pc, #188]	; (80061b8 <register_button+0xcc>)
+ 80060fc:	781b      	ldrb	r3, [r3, #0]
+ 80060fe:	4619      	mov	r1, r3
+ 8006100:	4a2e      	ldr	r2, [pc, #184]	; (80061bc <register_button+0xd0>)
+ 8006102:	460b      	mov	r3, r1
+ 8006104:	005b      	lsls	r3, r3, #1
+ 8006106:	440b      	add	r3, r1
+ 8006108:	00db      	lsls	r3, r3, #3
+ 800610a:	4413      	add	r3, r2
+ 800610c:	68fa      	ldr	r2, [r7, #12]
+ 800610e:	601a      	str	r2, [r3, #0]
   _buttons[_num_of_registered_buttons].button_cfg.gpio_pin = pin;
- 80061c4:	4b29      	ldr	r3, [pc, #164]	; (800626c <register_button+0xcc>)
- 80061c6:	781b      	ldrb	r3, [r3, #0]
- 80061c8:	4619      	mov	r1, r3
- 80061ca:	4a29      	ldr	r2, [pc, #164]	; (8006270 <register_button+0xd0>)
- 80061cc:	460b      	mov	r3, r1
- 80061ce:	005b      	lsls	r3, r3, #1
- 80061d0:	440b      	add	r3, r1
- 80061d2:	00db      	lsls	r3, r3, #3
- 80061d4:	4413      	add	r3, r2
- 80061d6:	3304      	adds	r3, #4
- 80061d8:	68ba      	ldr	r2, [r7, #8]
- 80061da:	601a      	str	r2, [r3, #0]
+ 8006110:	4b29      	ldr	r3, [pc, #164]	; (80061b8 <register_button+0xcc>)
+ 8006112:	781b      	ldrb	r3, [r3, #0]
+ 8006114:	4619      	mov	r1, r3
+ 8006116:	4a29      	ldr	r2, [pc, #164]	; (80061bc <register_button+0xd0>)
+ 8006118:	460b      	mov	r3, r1
+ 800611a:	005b      	lsls	r3, r3, #1
+ 800611c:	440b      	add	r3, r1
+ 800611e:	00db      	lsls	r3, r3, #3
+ 8006120:	4413      	add	r3, r2
+ 8006122:	3304      	adds	r3, #4
+ 8006124:	68ba      	ldr	r2, [r7, #8]
+ 8006126:	601a      	str	r2, [r3, #0]
   _buttons[_num_of_registered_buttons].button_cfg.press_mode = press_mode;
- 80061dc:	4b23      	ldr	r3, [pc, #140]	; (800626c <register_button+0xcc>)
- 80061de:	781b      	ldrb	r3, [r3, #0]
- 80061e0:	4619      	mov	r1, r3
- 80061e2:	4a23      	ldr	r2, [pc, #140]	; (8006270 <register_button+0xd0>)
- 80061e4:	460b      	mov	r3, r1
- 80061e6:	005b      	lsls	r3, r3, #1
- 80061e8:	440b      	add	r3, r1
- 80061ea:	00db      	lsls	r3, r3, #3
- 80061ec:	4413      	add	r3, r2
- 80061ee:	3308      	adds	r3, #8
- 80061f0:	79fa      	ldrb	r2, [r7, #7]
- 80061f2:	701a      	strb	r2, [r3, #0]
+ 8006128:	4b23      	ldr	r3, [pc, #140]	; (80061b8 <register_button+0xcc>)
+ 800612a:	781b      	ldrb	r3, [r3, #0]
+ 800612c:	4619      	mov	r1, r3
+ 800612e:	4a23      	ldr	r2, [pc, #140]	; (80061bc <register_button+0xd0>)
+ 8006130:	460b      	mov	r3, r1
+ 8006132:	005b      	lsls	r3, r3, #1
+ 8006134:	440b      	add	r3, r1
+ 8006136:	00db      	lsls	r3, r3, #3
+ 8006138:	4413      	add	r3, r2
+ 800613a:	3308      	adds	r3, #8
+ 800613c:	79fa      	ldrb	r2, [r7, #7]
+ 800613e:	701a      	strb	r2, [r3, #0]
 
   _buttons[_num_of_registered_buttons].button_state = BTN_STATE_IDLE;
- 80061f4:	4b1d      	ldr	r3, [pc, #116]	; (800626c <register_button+0xcc>)
- 80061f6:	781b      	ldrb	r3, [r3, #0]
- 80061f8:	4619      	mov	r1, r3
- 80061fa:	4a1d      	ldr	r2, [pc, #116]	; (8006270 <register_button+0xd0>)
- 80061fc:	460b      	mov	r3, r1
- 80061fe:	005b      	lsls	r3, r3, #1
- 8006200:	440b      	add	r3, r1
- 8006202:	00db      	lsls	r3, r3, #3
- 8006204:	4413      	add	r3, r2
- 8006206:	330c      	adds	r3, #12
- 8006208:	2200      	movs	r2, #0
- 800620a:	701a      	strb	r2, [r3, #0]
+ 8006140:	4b1d      	ldr	r3, [pc, #116]	; (80061b8 <register_button+0xcc>)
+ 8006142:	781b      	ldrb	r3, [r3, #0]
+ 8006144:	4619      	mov	r1, r3
+ 8006146:	4a1d      	ldr	r2, [pc, #116]	; (80061bc <register_button+0xd0>)
+ 8006148:	460b      	mov	r3, r1
+ 800614a:	005b      	lsls	r3, r3, #1
+ 800614c:	440b      	add	r3, r1
+ 800614e:	00db      	lsls	r3, r3, #3
+ 8006150:	4413      	add	r3, r2
+ 8006152:	330c      	adds	r3, #12
+ 8006154:	2200      	movs	r2, #0
+ 8006156:	701a      	strb	r2, [r3, #0]
   _buttons[_num_of_registered_buttons].first_change_timestamp = 0;
- 800620c:	4b17      	ldr	r3, [pc, #92]	; (800626c <register_button+0xcc>)
- 800620e:	781b      	ldrb	r3, [r3, #0]
- 8006210:	4619      	mov	r1, r3
- 8006212:	4a17      	ldr	r2, [pc, #92]	; (8006270 <register_button+0xd0>)
- 8006214:	460b      	mov	r3, r1
- 8006216:	005b      	lsls	r3, r3, #1
- 8006218:	440b      	add	r3, r1
- 800621a:	00db      	lsls	r3, r3, #3
- 800621c:	4413      	add	r3, r2
- 800621e:	3310      	adds	r3, #16
- 8006220:	2200      	movs	r2, #0
- 8006222:	601a      	str	r2, [r3, #0]
+ 8006158:	4b17      	ldr	r3, [pc, #92]	; (80061b8 <register_button+0xcc>)
+ 800615a:	781b      	ldrb	r3, [r3, #0]
+ 800615c:	4619      	mov	r1, r3
+ 800615e:	4a17      	ldr	r2, [pc, #92]	; (80061bc <register_button+0xd0>)
+ 8006160:	460b      	mov	r3, r1
+ 8006162:	005b      	lsls	r3, r3, #1
+ 8006164:	440b      	add	r3, r1
+ 8006166:	00db      	lsls	r3, r3, #3
+ 8006168:	4413      	add	r3, r2
+ 800616a:	3310      	adds	r3, #16
+ 800616c:	2200      	movs	r2, #0
+ 800616e:	601a      	str	r2, [r3, #0]
   _buttons[_num_of_registered_buttons].button_phy_state = get_button_pin_state(
       &_buttons[_num_of_registered_buttons].button_cfg);
- 8006224:	4b11      	ldr	r3, [pc, #68]	; (800626c <register_button+0xcc>)
- 8006226:	781b      	ldrb	r3, [r3, #0]
- 8006228:	461a      	mov	r2, r3
+ 8006170:	4b11      	ldr	r3, [pc, #68]	; (80061b8 <register_button+0xcc>)
+ 8006172:	781b      	ldrb	r3, [r3, #0]
+ 8006174:	461a      	mov	r2, r3
   _buttons[_num_of_registered_buttons].button_phy_state = get_button_pin_state(
- 800622a:	4613      	mov	r3, r2
- 800622c:	005b      	lsls	r3, r3, #1
- 800622e:	4413      	add	r3, r2
- 8006230:	00db      	lsls	r3, r3, #3
- 8006232:	4a0f      	ldr	r2, [pc, #60]	; (8006270 <register_button+0xd0>)
- 8006234:	441a      	add	r2, r3
- 8006236:	4b0d      	ldr	r3, [pc, #52]	; (800626c <register_button+0xcc>)
- 8006238:	781b      	ldrb	r3, [r3, #0]
- 800623a:	461c      	mov	r4, r3
- 800623c:	4610      	mov	r0, r2
- 800623e:	f000 f95f 	bl	8006500 <get_button_pin_state>
- 8006242:	4603      	mov	r3, r0
- 8006244:	4619      	mov	r1, r3
- 8006246:	4a0a      	ldr	r2, [pc, #40]	; (8006270 <register_button+0xd0>)
- 8006248:	4623      	mov	r3, r4
- 800624a:	005b      	lsls	r3, r3, #1
- 800624c:	4423      	add	r3, r4
- 800624e:	00db      	lsls	r3, r3, #3
- 8006250:	4413      	add	r3, r2
- 8006252:	330d      	adds	r3, #13
- 8006254:	460a      	mov	r2, r1
- 8006256:	701a      	strb	r2, [r3, #0]
+ 8006176:	4613      	mov	r3, r2
+ 8006178:	005b      	lsls	r3, r3, #1
+ 800617a:	4413      	add	r3, r2
+ 800617c:	00db      	lsls	r3, r3, #3
+ 800617e:	4a0f      	ldr	r2, [pc, #60]	; (80061bc <register_button+0xd0>)
+ 8006180:	441a      	add	r2, r3
+ 8006182:	4b0d      	ldr	r3, [pc, #52]	; (80061b8 <register_button+0xcc>)
+ 8006184:	781b      	ldrb	r3, [r3, #0]
+ 8006186:	461c      	mov	r4, r3
+ 8006188:	4610      	mov	r0, r2
+ 800618a:	f000 f824 	bl	80061d6 <get_button_pin_state>
+ 800618e:	4603      	mov	r3, r0
+ 8006190:	4619      	mov	r1, r3
+ 8006192:	4a0a      	ldr	r2, [pc, #40]	; (80061bc <register_button+0xd0>)
+ 8006194:	4623      	mov	r3, r4
+ 8006196:	005b      	lsls	r3, r3, #1
+ 8006198:	4423      	add	r3, r4
+ 800619a:	00db      	lsls	r3, r3, #3
+ 800619c:	4413      	add	r3, r2
+ 800619e:	330d      	adds	r3, #13
+ 80061a0:	460a      	mov	r2, r1
+ 80061a2:	701a      	strb	r2, [r3, #0]
 
   _num_of_registered_buttons++;
- 8006258:	4b04      	ldr	r3, [pc, #16]	; (800626c <register_button+0xcc>)
- 800625a:	781b      	ldrb	r3, [r3, #0]
- 800625c:	3301      	adds	r3, #1
- 800625e:	b2da      	uxtb	r2, r3
- 8006260:	4b02      	ldr	r3, [pc, #8]	; (800626c <register_button+0xcc>)
- 8006262:	701a      	strb	r2, [r3, #0]
+ 80061a4:	4b04      	ldr	r3, [pc, #16]	; (80061b8 <register_button+0xcc>)
+ 80061a6:	781b      	ldrb	r3, [r3, #0]
+ 80061a8:	3301      	adds	r3, #1
+ 80061aa:	b2da      	uxtb	r2, r3
+ 80061ac:	4b02      	ldr	r3, [pc, #8]	; (80061b8 <register_button+0xcc>)
+ 80061ae:	701a      	strb	r2, [r3, #0]
 }
- 8006264:	bf00      	nop
- 8006266:	3714      	adds	r7, #20
- 8006268:	46bd      	mov	sp, r7
- 800626a:	bd90      	pop	{r4, r7, pc}
- 800626c:	2000038c 	.word	0x2000038c
- 8006270:	20000abc 	.word	0x20000abc
+ 80061b0:	bf00      	nop
+ 80061b2:	3714      	adds	r7, #20
+ 80061b4:	46bd      	mov	sp, r7
+ 80061b6:	bd90      	pop	{r4, r7, pc}
+ 80061b8:	20000380 	.word	0x20000380
+ 80061bc:	20000abc 	.word	0x20000abc
 
-08006274 <ring_buffer_init>:
- * @brief Initialize a ring buffer
- * @param *rbd - pointer to the ring buffer descriptor
- * @param size - ring buffer size in number of bytes
- * @return RB_ERROR, RB_OK
- */
-rb_status_t ring_buffer_init(rb_att_t *rbd, uint32_t size){
- 8006274:	b580      	push	{r7, lr}
- 8006276:	b082      	sub	sp, #8
- 8006278:	af00      	add	r7, sp, #0
- 800627a:	6078      	str	r0, [r7, #4]
- 800627c:	6039      	str	r1, [r7, #0]
-  rbd->status = RB_ERROR;
- 800627e:	687b      	ldr	r3, [r7, #4]
- 8006280:	2201      	movs	r2, #1
- 8006282:	751a      	strb	r2, [r3, #20]
-  
-  
-  if(rbd != NULL){  // rbd must not be pointer to nowhere
- 8006284:	687b      	ldr	r3, [r7, #4]
- 8006286:	2b00      	cmp	r3, #0
- 8006288:	d01a      	beq.n	80062c0 <ring_buffer_init+0x4c>
-    rbd->buff = calloc(size, sizeof(uint8_t)); // allocate memory of "size" bytes, set all values to 0.
- 800628a:	2101      	movs	r1, #1
- 800628c:	6838      	ldr	r0, [r7, #0]
- 800628e:	f000 fa8f 	bl	80067b0 <calloc>
- 8006292:	4603      	mov	r3, r0
- 8006294:	461a      	mov	r2, r3
- 8006296:	687b      	ldr	r3, [r7, #4]
- 8006298:	601a      	str	r2, [r3, #0]
-    //rbd->buff = malloc(size * sizeof(uint8_t)); // Use this instead of calloc() if you don't wish to set all values to 0 by default.
-
-    if(rbd->buff != NULL){  // buff must not be pointer to nowhere
- 800629a:	687b      	ldr	r3, [r7, #4]
- 800629c:	681b      	ldr	r3, [r3, #0]
- 800629e:	2b00      	cmp	r3, #0
- 80062a0:	d00e      	beq.n	80062c0 <ring_buffer_init+0x4c>
-      rbd->n_elem = size;
- 80062a2:	687b      	ldr	r3, [r7, #4]
- 80062a4:	683a      	ldr	r2, [r7, #0]
- 80062a6:	605a      	str	r2, [r3, #4]
-
-      // Initialize the ring buffer internal variables
-      rbd->head = 0;
- 80062a8:	687b      	ldr	r3, [r7, #4]
- 80062aa:	2200      	movs	r2, #0
- 80062ac:	609a      	str	r2, [r3, #8]
-      rbd->tail = 0;
- 80062ae:	687b      	ldr	r3, [r7, #4]
- 80062b0:	2200      	movs	r2, #0
- 80062b2:	60da      	str	r2, [r3, #12]
-      rbd->count = 0;
- 80062b4:	687b      	ldr	r3, [r7, #4]
- 80062b6:	2200      	movs	r2, #0
- 80062b8:	611a      	str	r2, [r3, #16]
-      
-      rbd->status = RB_OK;
- 80062ba:	687b      	ldr	r3, [r7, #4]
- 80062bc:	2200      	movs	r2, #0
- 80062be:	751a      	strb	r2, [r3, #20]
-    }
-  }
-
-  return rbd->status;
- 80062c0:	687b      	ldr	r3, [r7, #4]
- 80062c2:	7d1b      	ldrb	r3, [r3, #20]
- 80062c4:	b2db      	uxtb	r3, r3
-}
- 80062c6:	4618      	mov	r0, r3
- 80062c8:	3708      	adds	r7, #8
- 80062ca:	46bd      	mov	sp, r7
- 80062cc:	bd80      	pop	{r7, pc}
-
-080062ce <ring_buffer_put>:
- * @param *rbd - pointer to the ring buffer descriptor
- * @param data - the data to add
- * @param num - number of elements to add
- * @return RB_NOT_ENOUGH_SPACE, RB_OK, RB_ERROR
- */
-rb_status_t ring_buffer_put(rb_att_t *rbd, uint8_t *data, uint32_t num){
- 80062ce:	b580      	push	{r7, lr}
- 80062d0:	b086      	sub	sp, #24
- 80062d2:	af00      	add	r7, sp, #0
- 80062d4:	60f8      	str	r0, [r7, #12]
- 80062d6:	60b9      	str	r1, [r7, #8]
- 80062d8:	607a      	str	r2, [r7, #4]
-  rb_status_t status = RB_ERROR;
- 80062da:	2301      	movs	r3, #1
- 80062dc:	75fb      	strb	r3, [r7, #23]
-  uint32_t num_to_end = 0; // number of elements to the last buffer element (including current one (head))
- 80062de:	2300      	movs	r3, #0
- 80062e0:	613b      	str	r3, [r7, #16]
-  
-  if(rbd != NULL){  // rbd must not be a pointer to nowhere
- 80062e2:	68fb      	ldr	r3, [r7, #12]
- 80062e4:	2b00      	cmp	r3, #0
- 80062e6:	d055      	beq.n	8006394 <ring_buffer_put+0xc6>
-    if(ring_buffer_free_elements(rbd) >= num){  // is there enough space in buffer for num of data
- 80062e8:	68f8      	ldr	r0, [r7, #12]
- 80062ea:	f000 f8c6 	bl	800647a <ring_buffer_free_elements>
- 80062ee:	4602      	mov	r2, r0
- 80062f0:	687b      	ldr	r3, [r7, #4]
- 80062f2:	4293      	cmp	r3, r2
- 80062f4:	d84c      	bhi.n	8006390 <ring_buffer_put+0xc2>
-      if(rbd->head >= rbd->n_elem){ // reset ring buffer head
- 80062f6:	68fb      	ldr	r3, [r7, #12]
- 80062f8:	689a      	ldr	r2, [r3, #8]
- 80062fa:	68fb      	ldr	r3, [r7, #12]
- 80062fc:	685b      	ldr	r3, [r3, #4]
- 80062fe:	429a      	cmp	r2, r3
- 8006300:	d302      	bcc.n	8006308 <ring_buffer_put+0x3a>
-        rbd->head = 0;
- 8006302:	68fb      	ldr	r3, [r7, #12]
- 8006304:	2200      	movs	r2, #0
- 8006306:	609a      	str	r2, [r3, #8]
-      }
-      
-      num_to_end = rbd->n_elem - rbd->head; // that many data can be written into buffer, before reaching buffer last element
- 8006308:	68fb      	ldr	r3, [r7, #12]
- 800630a:	685a      	ldr	r2, [r3, #4]
- 800630c:	68fb      	ldr	r3, [r7, #12]
- 800630e:	689b      	ldr	r3, [r3, #8]
- 8006310:	1ad3      	subs	r3, r2, r3
- 8006312:	613b      	str	r3, [r7, #16]
-      if(num_to_end < num){ // if there is not enough space for "num" of data before reaching buffer last element
- 8006314:	693a      	ldr	r2, [r7, #16]
- 8006316:	687b      	ldr	r3, [r7, #4]
- 8006318:	429a      	cmp	r2, r3
- 800631a:	d220      	bcs.n	800635e <ring_buffer_put+0x90>
-        memcpy(&(rbd->buff[rbd->head]), data, num_to_end); //write to buffer partial data
- 800631c:	68fb      	ldr	r3, [r7, #12]
- 800631e:	681a      	ldr	r2, [r3, #0]
- 8006320:	68fb      	ldr	r3, [r7, #12]
- 8006322:	689b      	ldr	r3, [r3, #8]
- 8006324:	4413      	add	r3, r2
- 8006326:	693a      	ldr	r2, [r7, #16]
- 8006328:	68b9      	ldr	r1, [r7, #8]
- 800632a:	4618      	mov	r0, r3
- 800632c:	f000 fa72 	bl	8006814 <memcpy>
-        memcpy(rbd->buff, (data + num_to_end), (num - num_to_end)); //write to buffer rest of the data, starting with buffer[0]
- 8006330:	68fb      	ldr	r3, [r7, #12]
- 8006332:	6818      	ldr	r0, [r3, #0]
- 8006334:	68ba      	ldr	r2, [r7, #8]
- 8006336:	693b      	ldr	r3, [r7, #16]
- 8006338:	18d1      	adds	r1, r2, r3
- 800633a:	687a      	ldr	r2, [r7, #4]
- 800633c:	693b      	ldr	r3, [r7, #16]
- 800633e:	1ad3      	subs	r3, r2, r3
- 8006340:	461a      	mov	r2, r3
- 8006342:	f000 fa67 	bl	8006814 <memcpy>
-        
-        rbd->head = num - num_to_end;  //head
- 8006346:	687a      	ldr	r2, [r7, #4]
- 8006348:	693b      	ldr	r3, [r7, #16]
- 800634a:	1ad2      	subs	r2, r2, r3
- 800634c:	68fb      	ldr	r3, [r7, #12]
- 800634e:	609a      	str	r2, [r3, #8]
-        rbd->count = rbd->count + num; // increment counter for num of data
- 8006350:	68fb      	ldr	r3, [r7, #12]
- 8006352:	691a      	ldr	r2, [r3, #16]
- 8006354:	687b      	ldr	r3, [r7, #4]
- 8006356:	441a      	add	r2, r3
- 8006358:	68fb      	ldr	r3, [r7, #12]
- 800635a:	611a      	str	r2, [r3, #16]
- 800635c:	e015      	b.n	800638a <ring_buffer_put+0xbc>
-      }
-      else{ // there is enough space before reaching buffer's last element
-        memcpy(&(rbd->buff[rbd->head]), data, num); //write to buffer all num of data in one piece
- 800635e:	68fb      	ldr	r3, [r7, #12]
- 8006360:	681a      	ldr	r2, [r3, #0]
- 8006362:	68fb      	ldr	r3, [r7, #12]
- 8006364:	689b      	ldr	r3, [r3, #8]
- 8006366:	4413      	add	r3, r2
- 8006368:	687a      	ldr	r2, [r7, #4]
- 800636a:	68b9      	ldr	r1, [r7, #8]
- 800636c:	4618      	mov	r0, r3
- 800636e:	f000 fa51 	bl	8006814 <memcpy>
-        
-        rbd->head = rbd->head + num;  // increment head
- 8006372:	68fb      	ldr	r3, [r7, #12]
- 8006374:	689a      	ldr	r2, [r3, #8]
- 8006376:	687b      	ldr	r3, [r7, #4]
- 8006378:	441a      	add	r2, r3
- 800637a:	68fb      	ldr	r3, [r7, #12]
- 800637c:	609a      	str	r2, [r3, #8]
-        rbd->count = rbd->count + num; // increment counter for num of data
- 800637e:	68fb      	ldr	r3, [r7, #12]
- 8006380:	691a      	ldr	r2, [r3, #16]
- 8006382:	687b      	ldr	r3, [r7, #4]
- 8006384:	441a      	add	r2, r3
- 8006386:	68fb      	ldr	r3, [r7, #12]
- 8006388:	611a      	str	r2, [r3, #16]
-      }
-      
-      status = RB_OK;
- 800638a:	2300      	movs	r3, #0
- 800638c:	75fb      	strb	r3, [r7, #23]
- 800638e:	e001      	b.n	8006394 <ring_buffer_put+0xc6>
-    }
-    else{ // there is not enough space in buffer for num of data
-      status = RB_NOT_ENOUGH_SPACE;
- 8006390:	2304      	movs	r3, #4
- 8006392:	75fb      	strb	r3, [r7, #23]
-    }
-  }
-  rbd->status = status;
- 8006394:	68fb      	ldr	r3, [r7, #12]
- 8006396:	7dfa      	ldrb	r2, [r7, #23]
- 8006398:	751a      	strb	r2, [r3, #20]
-  return status;
- 800639a:	7dfb      	ldrb	r3, [r7, #23]
-}
- 800639c:	4618      	mov	r0, r3
- 800639e:	3718      	adds	r7, #24
- 80063a0:	46bd      	mov	sp, r7
- 80063a2:	bd80      	pop	{r7, pc}
-
-080063a4 <ring_buffer_get>:
- * @param *rbd - pointer to the ring buffer descriptor
- * @param data - pointer to store the data
- * @param num - number of elements to read
- * @return RB_NOT_ENOUGH_DATA, RB_OK, RB_ERROR
- */
-rb_status_t ring_buffer_get(rb_att_t *rbd, uint8_t *data, uint32_t num){
- 80063a4:	b580      	push	{r7, lr}
- 80063a6:	b086      	sub	sp, #24
- 80063a8:	af00      	add	r7, sp, #0
- 80063aa:	60f8      	str	r0, [r7, #12]
- 80063ac:	60b9      	str	r1, [r7, #8]
- 80063ae:	607a      	str	r2, [r7, #4]
-  rb_status_t status = RB_ERROR;
- 80063b0:	2301      	movs	r3, #1
- 80063b2:	75fb      	strb	r3, [r7, #23]
-  uint32_t num_to_end = 0;
- 80063b4:	2300      	movs	r3, #0
- 80063b6:	613b      	str	r3, [r7, #16]
-  
-  if(rbd != NULL){  // rbd must not be a pointer to nowhere
- 80063b8:	68fb      	ldr	r3, [r7, #12]
- 80063ba:	2b00      	cmp	r3, #0
- 80063bc:	d055      	beq.n	800646a <ring_buffer_get+0xc6>
-    if(ring_buffer_size(rbd) >= num){ //buffer is not empty and there is at least num of data stored
- 80063be:	68f8      	ldr	r0, [r7, #12]
- 80063c0:	f000 f870 	bl	80064a4 <ring_buffer_size>
- 80063c4:	4602      	mov	r2, r0
- 80063c6:	687b      	ldr	r3, [r7, #4]
- 80063c8:	4293      	cmp	r3, r2
- 80063ca:	d84c      	bhi.n	8006466 <ring_buffer_get+0xc2>
-      if(rbd->tail >= rbd->n_elem){ // reset ring buffer tail
- 80063cc:	68fb      	ldr	r3, [r7, #12]
- 80063ce:	68da      	ldr	r2, [r3, #12]
- 80063d0:	68fb      	ldr	r3, [r7, #12]
- 80063d2:	685b      	ldr	r3, [r3, #4]
- 80063d4:	429a      	cmp	r2, r3
- 80063d6:	d302      	bcc.n	80063de <ring_buffer_get+0x3a>
-        rbd->tail = 0;
- 80063d8:	68fb      	ldr	r3, [r7, #12]
- 80063da:	2200      	movs	r2, #0
- 80063dc:	60da      	str	r2, [r3, #12]
-      }
-      
-      num_to_end = rbd->n_elem - rbd->tail;
- 80063de:	68fb      	ldr	r3, [r7, #12]
- 80063e0:	685a      	ldr	r2, [r3, #4]
- 80063e2:	68fb      	ldr	r3, [r7, #12]
- 80063e4:	68db      	ldr	r3, [r3, #12]
- 80063e6:	1ad3      	subs	r3, r2, r3
- 80063e8:	613b      	str	r3, [r7, #16]
-      if(num >= num_to_end){ // is there enough ("num") of data to read before reaching buffer last element
- 80063ea:	687a      	ldr	r2, [r7, #4]
- 80063ec:	693b      	ldr	r3, [r7, #16]
- 80063ee:	429a      	cmp	r2, r3
- 80063f0:	d320      	bcc.n	8006434 <ring_buffer_get+0x90>
-        memcpy(data, &(rbd->buff[rbd->tail]), num_to_end); //read from buffer partial data
- 80063f2:	68fb      	ldr	r3, [r7, #12]
- 80063f4:	681a      	ldr	r2, [r3, #0]
- 80063f6:	68fb      	ldr	r3, [r7, #12]
- 80063f8:	68db      	ldr	r3, [r3, #12]
- 80063fa:	4413      	add	r3, r2
- 80063fc:	693a      	ldr	r2, [r7, #16]
- 80063fe:	4619      	mov	r1, r3
- 8006400:	68b8      	ldr	r0, [r7, #8]
- 8006402:	f000 fa07 	bl	8006814 <memcpy>
-        memcpy(data + num_to_end, rbd->buff, (num - num_to_end)); //read from buffer remaining partial data
- 8006406:	68ba      	ldr	r2, [r7, #8]
- 8006408:	693b      	ldr	r3, [r7, #16]
- 800640a:	18d0      	adds	r0, r2, r3
- 800640c:	68fb      	ldr	r3, [r7, #12]
- 800640e:	6819      	ldr	r1, [r3, #0]
- 8006410:	687a      	ldr	r2, [r7, #4]
- 8006412:	693b      	ldr	r3, [r7, #16]
- 8006414:	1ad3      	subs	r3, r2, r3
- 8006416:	461a      	mov	r2, r3
- 8006418:	f000 f9fc 	bl	8006814 <memcpy>
-          
-        rbd->tail = num - num_to_end;  // tail increment
- 800641c:	687a      	ldr	r2, [r7, #4]
- 800641e:	693b      	ldr	r3, [r7, #16]
- 8006420:	1ad2      	subs	r2, r2, r3
- 8006422:	68fb      	ldr	r3, [r7, #12]
- 8006424:	60da      	str	r2, [r3, #12]
-        rbd->count = rbd->count - num; // decrement counter for num of data
- 8006426:	68fb      	ldr	r3, [r7, #12]
- 8006428:	691a      	ldr	r2, [r3, #16]
- 800642a:	687b      	ldr	r3, [r7, #4]
- 800642c:	1ad2      	subs	r2, r2, r3
- 800642e:	68fb      	ldr	r3, [r7, #12]
- 8006430:	611a      	str	r2, [r3, #16]
- 8006432:	e015      	b.n	8006460 <ring_buffer_get+0xbc>
-      }
-      else{ //there is enough data to be read before reaching last element of ring buffer
-        memcpy(data, &(rbd->buff[rbd->tail]), num); //read from buffer
- 8006434:	68fb      	ldr	r3, [r7, #12]
- 8006436:	681a      	ldr	r2, [r3, #0]
- 8006438:	68fb      	ldr	r3, [r7, #12]
- 800643a:	68db      	ldr	r3, [r3, #12]
- 800643c:	4413      	add	r3, r2
- 800643e:	687a      	ldr	r2, [r7, #4]
- 8006440:	4619      	mov	r1, r3
- 8006442:	68b8      	ldr	r0, [r7, #8]
- 8006444:	f000 f9e6 	bl	8006814 <memcpy>
-        
-        rbd->tail = rbd->tail + num;  // increment tail
- 8006448:	68fb      	ldr	r3, [r7, #12]
- 800644a:	68da      	ldr	r2, [r3, #12]
- 800644c:	687b      	ldr	r3, [r7, #4]
- 800644e:	441a      	add	r2, r3
- 8006450:	68fb      	ldr	r3, [r7, #12]
- 8006452:	60da      	str	r2, [r3, #12]
-        rbd->count = rbd->count - num; // decrement counter for num of data
- 8006454:	68fb      	ldr	r3, [r7, #12]
- 8006456:	691a      	ldr	r2, [r3, #16]
- 8006458:	687b      	ldr	r3, [r7, #4]
- 800645a:	1ad2      	subs	r2, r2, r3
- 800645c:	68fb      	ldr	r3, [r7, #12]
- 800645e:	611a      	str	r2, [r3, #16]
-      }
-      status = RB_OK;
- 8006460:	2300      	movs	r3, #0
- 8006462:	75fb      	strb	r3, [r7, #23]
- 8006464:	e001      	b.n	800646a <ring_buffer_get+0xc6>
-    }
-    else{
-      status = RB_NOT_ENOUGH_DATA;
- 8006466:	2305      	movs	r3, #5
- 8006468:	75fb      	strb	r3, [r7, #23]
-    }
-  }
-  
-  rbd->status = status;
- 800646a:	68fb      	ldr	r3, [r7, #12]
- 800646c:	7dfa      	ldrb	r2, [r7, #23]
- 800646e:	751a      	strb	r2, [r3, #20]
-  return status;
- 8006470:	7dfb      	ldrb	r3, [r7, #23]
-}
- 8006472:	4618      	mov	r0, r3
- 8006474:	3718      	adds	r7, #24
- 8006476:	46bd      	mov	sp, r7
- 8006478:	bd80      	pop	{r7, pc}
-
-0800647a <ring_buffer_free_elements>:
-/**
- * @brief Check how many elements can be written to the buffer
- * @param *rbd - pointer to the ring buffer descriptor
- * @return 0 on invalid parameter, number of elements otherwise
- */
-uint32_t ring_buffer_free_elements(rb_att_t *rbd){
- 800647a:	b480      	push	{r7}
- 800647c:	b085      	sub	sp, #20
- 800647e:	af00      	add	r7, sp, #0
- 8006480:	6078      	str	r0, [r7, #4]
-  uint32_t ret_val = 0;
- 8006482:	2300      	movs	r3, #0
- 8006484:	60fb      	str	r3, [r7, #12]
-  
-  if(rbd != NULL){  // rbd must not be a pointer to nowhere
- 8006486:	687b      	ldr	r3, [r7, #4]
- 8006488:	2b00      	cmp	r3, #0
- 800648a:	d005      	beq.n	8006498 <ring_buffer_free_elements+0x1e>
-   ret_val = rbd->n_elem - rbd->count;
- 800648c:	687b      	ldr	r3, [r7, #4]
- 800648e:	685a      	ldr	r2, [r3, #4]
- 8006490:	687b      	ldr	r3, [r7, #4]
- 8006492:	691b      	ldr	r3, [r3, #16]
- 8006494:	1ad3      	subs	r3, r2, r3
- 8006496:	60fb      	str	r3, [r7, #12]
-  }
-  
-  return ret_val;
- 8006498:	68fb      	ldr	r3, [r7, #12]
-}
- 800649a:	4618      	mov	r0, r3
- 800649c:	3714      	adds	r7, #20
- 800649e:	46bd      	mov	sp, r7
- 80064a0:	bc80      	pop	{r7}
- 80064a2:	4770      	bx	lr
-
-080064a4 <ring_buffer_size>:
-/**
- * @brief Get the number of bytes stored in ring buffer
- * @param *rbd - pointer to the ring buffer descriptor
- * @return 0 if invalid parameters, number of data stored in buffer otherwise
- */
-uint32_t ring_buffer_size(rb_att_t *rbd){
- 80064a4:	b480      	push	{r7}
- 80064a6:	b085      	sub	sp, #20
- 80064a8:	af00      	add	r7, sp, #0
- 80064aa:	6078      	str	r0, [r7, #4]
-  uint32_t size = 0;
- 80064ac:	2300      	movs	r3, #0
- 80064ae:	60fb      	str	r3, [r7, #12]
-  
-  if(rbd != NULL){  // rbd must not be a pointer to nowhere
- 80064b0:	687b      	ldr	r3, [r7, #4]
- 80064b2:	2b00      	cmp	r3, #0
- 80064b4:	d002      	beq.n	80064bc <ring_buffer_size+0x18>
-    size = rbd->count;
- 80064b6:	687b      	ldr	r3, [r7, #4]
- 80064b8:	691b      	ldr	r3, [r3, #16]
- 80064ba:	60fb      	str	r3, [r7, #12]
-  }
-  
-  return size;
- 80064bc:	68fb      	ldr	r3, [r7, #12]
-}
- 80064be:	4618      	mov	r0, r3
- 80064c0:	3714      	adds	r7, #20
- 80064c2:	46bd      	mov	sp, r7
- 80064c4:	bc80      	pop	{r7}
- 80064c6:	4770      	bx	lr
-
-080064c8 <printString>:
- * @brief Send/print readable character/string.
- * @param pointer to a string data
- * @example printString("test data");
- * @retval None
- */
-void printString(char *data) {
- 80064c8:	b580      	push	{r7, lr}
- 80064ca:	b082      	sub	sp, #8
- 80064cc:	af00      	add	r7, sp, #0
- 80064ce:	6078      	str	r0, [r7, #4]
-  send_data((uint8_t*) data, (uint16_t) strlen(data));
- 80064d0:	6878      	ldr	r0, [r7, #4]
- 80064d2:	f7f9 fe55 	bl	8000180 <strlen>
- 80064d6:	4603      	mov	r3, r0
- 80064d8:	b29b      	uxth	r3, r3
- 80064da:	4619      	mov	r1, r3
- 80064dc:	6878      	ldr	r0, [r7, #4]
- 80064de:	f000 f93b 	bl	8006758 <send_data>
-}
- 80064e2:	bf00      	nop
- 80064e4:	3708      	adds	r7, #8
- 80064e6:	46bd      	mov	sp, r7
- 80064e8:	bd80      	pop	{r7, pc}
-
-080064ea <LL_GPIO_ReadInputPort>:
+080061c0 <LL_GPIO_ReadInputPort>:
 {
- 80064ea:	b480      	push	{r7}
- 80064ec:	b083      	sub	sp, #12
- 80064ee:	af00      	add	r7, sp, #0
- 80064f0:	6078      	str	r0, [r7, #4]
+ 80061c0:	b480      	push	{r7}
+ 80061c2:	b083      	sub	sp, #12
+ 80061c4:	af00      	add	r7, sp, #0
+ 80061c6:	6078      	str	r0, [r7, #4]
   return (uint32_t)(READ_REG(GPIOx->IDR));
- 80064f2:	687b      	ldr	r3, [r7, #4]
- 80064f4:	691b      	ldr	r3, [r3, #16]
+ 80061c8:	687b      	ldr	r3, [r7, #4]
+ 80061ca:	691b      	ldr	r3, [r3, #16]
 }
- 80064f6:	4618      	mov	r0, r3
- 80064f8:	370c      	adds	r7, #12
- 80064fa:	46bd      	mov	sp, r7
- 80064fc:	bc80      	pop	{r7}
- 80064fe:	4770      	bx	lr
+ 80061cc:	4618      	mov	r0, r3
+ 80061ce:	370c      	adds	r7, #12
+ 80061d0:	46bd      	mov	sp, r7
+ 80061d2:	bc80      	pop	{r7}
+ 80061d4:	4770      	bx	lr
 
-08006500 <get_button_pin_state>:
+080061d6 <get_button_pin_state>:
  * @brief Low level call to get actual pin state.
  * @param Registered button configuration structure.
  * @retval BTN_PHY_ACTIVE on button press, BTN_PHY_IDLE otherwise.
  * TODO: user must implement this function to return button state.
  */
 btn_phy_state_t get_button_pin_state(btn_cfg_t *btn_cfg) {
- 8006500:	b580      	push	{r7, lr}
- 8006502:	b084      	sub	sp, #16
- 8006504:	af00      	add	r7, sp, #0
- 8006506:	6078      	str	r0, [r7, #4]
+ 80061d6:	b580      	push	{r7, lr}
+ 80061d8:	b084      	sub	sp, #16
+ 80061da:	af00      	add	r7, sp, #0
+ 80061dc:	6078      	str	r0, [r7, #4]
   uint32_t port_state = LL_GPIO_ReadInputPort(btn_cfg->gpio_port);
- 8006508:	687b      	ldr	r3, [r7, #4]
- 800650a:	681b      	ldr	r3, [r3, #0]
- 800650c:	4618      	mov	r0, r3
- 800650e:	f7ff ffec 	bl	80064ea <LL_GPIO_ReadInputPort>
- 8006512:	60f8      	str	r0, [r7, #12]
+ 80061de:	687b      	ldr	r3, [r7, #4]
+ 80061e0:	681b      	ldr	r3, [r3, #0]
+ 80061e2:	4618      	mov	r0, r3
+ 80061e4:	f7ff ffec 	bl	80061c0 <LL_GPIO_ReadInputPort>
+ 80061e8:	60f8      	str	r0, [r7, #12]
   uint32_t pin_state = READ_BIT(port_state, btn_cfg->gpio_pin);
- 8006514:	687b      	ldr	r3, [r7, #4]
- 8006516:	685b      	ldr	r3, [r3, #4]
- 8006518:	68fa      	ldr	r2, [r7, #12]
- 800651a:	4013      	ands	r3, r2
- 800651c:	60bb      	str	r3, [r7, #8]
+ 80061ea:	687b      	ldr	r3, [r7, #4]
+ 80061ec:	685b      	ldr	r3, [r3, #4]
+ 80061ee:	68fa      	ldr	r2, [r7, #12]
+ 80061f0:	4013      	ands	r3, r2
+ 80061f2:	60bb      	str	r3, [r7, #8]
 
   if (pin_state == 0) {
- 800651e:	68bb      	ldr	r3, [r7, #8]
- 8006520:	2b00      	cmp	r3, #0
- 8006522:	d101      	bne.n	8006528 <get_button_pin_state+0x28>
+ 80061f4:	68bb      	ldr	r3, [r7, #8]
+ 80061f6:	2b00      	cmp	r3, #0
+ 80061f8:	d101      	bne.n	80061fe <get_button_pin_state+0x28>
     return BTN_PHY_ACTIVE;
- 8006524:	2301      	movs	r3, #1
- 8006526:	e000      	b.n	800652a <get_button_pin_state+0x2a>
+ 80061fa:	2301      	movs	r3, #1
+ 80061fc:	e000      	b.n	8006200 <get_button_pin_state+0x2a>
   }
   else {
     return BTN_PHY_IDLE;
- 8006528:	2300      	movs	r3, #0
+ 80061fe:	2300      	movs	r3, #0
   }
 }
- 800652a:	4618      	mov	r0, r3
- 800652c:	3710      	adds	r7, #16
- 800652e:	46bd      	mov	sp, r7
- 8006530:	bd80      	pop	{r7, pc}
-	...
+ 8006200:	4618      	mov	r0, r3
+ 8006202:	3710      	adds	r7, #16
+ 8006204:	46bd      	mov	sp, r7
+ 8006206:	bd80      	pop	{r7, pc}
 
-08006534 <on_button_press>:
+08006208 <on_button_press>:
  * @param Registered button GPIO port that event is triggered.
  * @param Registered button GPIO pin that event is triggered.
  * @retval None.
  * TODO: user can add actions on button events here.
  */
 void on_button_press(BTN_GPIO_PORT_TYPE *port, BTN_GPIO_PIN_TYPE pin) {
- 8006534:	b580      	push	{r7, lr}
- 8006536:	b082      	sub	sp, #8
- 8006538:	af00      	add	r7, sp, #0
- 800653a:	6078      	str	r0, [r7, #4]
- 800653c:	6039      	str	r1, [r7, #0]
+ 8006208:	b580      	push	{r7, lr}
+ 800620a:	b082      	sub	sp, #8
+ 800620c:	af00      	add	r7, sp, #0
+ 800620e:	6078      	str	r0, [r7, #4]
+ 8006210:	6039      	str	r1, [r7, #0]
   if ((port == B1_GPIO_Port) && (pin == B1_Pin)) {
- 800653e:	687b      	ldr	r3, [r7, #4]
- 8006540:	4a38      	ldr	r2, [pc, #224]	; (8006624 <on_button_press+0xf0>)
- 8006542:	4293      	cmp	r3, r2
- 8006544:	d108      	bne.n	8006558 <on_button_press+0x24>
- 8006546:	683b      	ldr	r3, [r7, #0]
- 8006548:	2b02      	cmp	r3, #2
- 800654a:	d105      	bne.n	8006558 <on_button_press+0x24>
+ 8006212:	687b      	ldr	r3, [r7, #4]
+ 8006214:	4a38      	ldr	r2, [pc, #224]	; (80062f8 <on_button_press+0xf0>)
+ 8006216:	4293      	cmp	r3, r2
+ 8006218:	d108      	bne.n	800622c <on_button_press+0x24>
+ 800621a:	683b      	ldr	r3, [r7, #0]
+ 800621c:	2b02      	cmp	r3, #2
+ 800621e:	d105      	bne.n	800622c <on_button_press+0x24>
     printString("B1");
- 800654c:	4836      	ldr	r0, [pc, #216]	; (8006628 <on_button_press+0xf4>)
- 800654e:	f7ff ffbb 	bl	80064c8 <printString>
+ 8006220:	4836      	ldr	r0, [pc, #216]	; (80062fc <on_button_press+0xf4>)
+ 8006222:	f000 fa0d 	bl	8006640 <printString>
     usb_send_button_press(0);
- 8006552:	2000      	movs	r0, #0
- 8006554:	f7ff fd64 	bl	8006020 <usb_send_button_press>
+ 8006226:	2000      	movs	r0, #0
+ 8006228:	f000 faac 	bl	8006784 <usb_send_button_press>
   }
   if ((port == B2_GPIO_Port) && (pin == B2_Pin)) {
- 8006558:	687b      	ldr	r3, [r7, #4]
- 800655a:	4a32      	ldr	r2, [pc, #200]	; (8006624 <on_button_press+0xf0>)
- 800655c:	4293      	cmp	r3, r2
- 800655e:	d108      	bne.n	8006572 <on_button_press+0x3e>
- 8006560:	683b      	ldr	r3, [r7, #0]
- 8006562:	2b04      	cmp	r3, #4
- 8006564:	d105      	bne.n	8006572 <on_button_press+0x3e>
+ 800622c:	687b      	ldr	r3, [r7, #4]
+ 800622e:	4a32      	ldr	r2, [pc, #200]	; (80062f8 <on_button_press+0xf0>)
+ 8006230:	4293      	cmp	r3, r2
+ 8006232:	d108      	bne.n	8006246 <on_button_press+0x3e>
+ 8006234:	683b      	ldr	r3, [r7, #0]
+ 8006236:	2b04      	cmp	r3, #4
+ 8006238:	d105      	bne.n	8006246 <on_button_press+0x3e>
     printString("B2");
- 8006566:	4831      	ldr	r0, [pc, #196]	; (800662c <on_button_press+0xf8>)
- 8006568:	f7ff ffae 	bl	80064c8 <printString>
+ 800623a:	4831      	ldr	r0, [pc, #196]	; (8006300 <on_button_press+0xf8>)
+ 800623c:	f000 fa00 	bl	8006640 <printString>
     usb_send_button_press(1);
- 800656c:	2001      	movs	r0, #1
- 800656e:	f7ff fd57 	bl	8006020 <usb_send_button_press>
+ 8006240:	2001      	movs	r0, #1
+ 8006242:	f000 fa9f 	bl	8006784 <usb_send_button_press>
   }
   if ((port == B3_GPIO_Port) && (pin == B3_Pin)) {
- 8006572:	687b      	ldr	r3, [r7, #4]
- 8006574:	4a2b      	ldr	r2, [pc, #172]	; (8006624 <on_button_press+0xf0>)
- 8006576:	4293      	cmp	r3, r2
- 8006578:	d108      	bne.n	800658c <on_button_press+0x58>
- 800657a:	683b      	ldr	r3, [r7, #0]
- 800657c:	2b08      	cmp	r3, #8
- 800657e:	d105      	bne.n	800658c <on_button_press+0x58>
+ 8006246:	687b      	ldr	r3, [r7, #4]
+ 8006248:	4a2b      	ldr	r2, [pc, #172]	; (80062f8 <on_button_press+0xf0>)
+ 800624a:	4293      	cmp	r3, r2
+ 800624c:	d108      	bne.n	8006260 <on_button_press+0x58>
+ 800624e:	683b      	ldr	r3, [r7, #0]
+ 8006250:	2b08      	cmp	r3, #8
+ 8006252:	d105      	bne.n	8006260 <on_button_press+0x58>
     printString("B3");
- 8006580:	482b      	ldr	r0, [pc, #172]	; (8006630 <on_button_press+0xfc>)
- 8006582:	f7ff ffa1 	bl	80064c8 <printString>
+ 8006254:	482b      	ldr	r0, [pc, #172]	; (8006304 <on_button_press+0xfc>)
+ 8006256:	f000 f9f3 	bl	8006640 <printString>
     usb_send_button_press(2);
- 8006586:	2002      	movs	r0, #2
- 8006588:	f7ff fd4a 	bl	8006020 <usb_send_button_press>
+ 800625a:	2002      	movs	r0, #2
+ 800625c:	f000 fa92 	bl	8006784 <usb_send_button_press>
   }
 
   if ((port == B4_GPIO_Port) && (pin == B4_Pin)) {
- 800658c:	687b      	ldr	r3, [r7, #4]
- 800658e:	4a29      	ldr	r2, [pc, #164]	; (8006634 <on_button_press+0x100>)
- 8006590:	4293      	cmp	r3, r2
- 8006592:	d108      	bne.n	80065a6 <on_button_press+0x72>
- 8006594:	683b      	ldr	r3, [r7, #0]
- 8006596:	2b01      	cmp	r3, #1
- 8006598:	d105      	bne.n	80065a6 <on_button_press+0x72>
+ 8006260:	687b      	ldr	r3, [r7, #4]
+ 8006262:	4a29      	ldr	r2, [pc, #164]	; (8006308 <on_button_press+0x100>)
+ 8006264:	4293      	cmp	r3, r2
+ 8006266:	d108      	bne.n	800627a <on_button_press+0x72>
+ 8006268:	683b      	ldr	r3, [r7, #0]
+ 800626a:	2b01      	cmp	r3, #1
+ 800626c:	d105      	bne.n	800627a <on_button_press+0x72>
     printString("B4");
- 800659a:	4827      	ldr	r0, [pc, #156]	; (8006638 <on_button_press+0x104>)
- 800659c:	f7ff ff94 	bl	80064c8 <printString>
+ 800626e:	4827      	ldr	r0, [pc, #156]	; (800630c <on_button_press+0x104>)
+ 8006270:	f000 f9e6 	bl	8006640 <printString>
     usb_send_button_press(3);
- 80065a0:	2003      	movs	r0, #3
- 80065a2:	f7ff fd3d 	bl	8006020 <usb_send_button_press>
+ 8006274:	2003      	movs	r0, #3
+ 8006276:	f000 fa85 	bl	8006784 <usb_send_button_press>
   }
 
   if ((port == B5_GPIO_Port) && (pin == B5_Pin)) {
- 80065a6:	687b      	ldr	r3, [r7, #4]
- 80065a8:	4a22      	ldr	r2, [pc, #136]	; (8006634 <on_button_press+0x100>)
- 80065aa:	4293      	cmp	r3, r2
- 80065ac:	d108      	bne.n	80065c0 <on_button_press+0x8c>
- 80065ae:	683b      	ldr	r3, [r7, #0]
- 80065b0:	2b02      	cmp	r3, #2
- 80065b2:	d105      	bne.n	80065c0 <on_button_press+0x8c>
+ 800627a:	687b      	ldr	r3, [r7, #4]
+ 800627c:	4a22      	ldr	r2, [pc, #136]	; (8006308 <on_button_press+0x100>)
+ 800627e:	4293      	cmp	r3, r2
+ 8006280:	d108      	bne.n	8006294 <on_button_press+0x8c>
+ 8006282:	683b      	ldr	r3, [r7, #0]
+ 8006284:	2b02      	cmp	r3, #2
+ 8006286:	d105      	bne.n	8006294 <on_button_press+0x8c>
     printString("B5");
- 80065b4:	4821      	ldr	r0, [pc, #132]	; (800663c <on_button_press+0x108>)
- 80065b6:	f7ff ff87 	bl	80064c8 <printString>
+ 8006288:	4821      	ldr	r0, [pc, #132]	; (8006310 <on_button_press+0x108>)
+ 800628a:	f000 f9d9 	bl	8006640 <printString>
     usb_send_button_press(4);
- 80065ba:	2004      	movs	r0, #4
- 80065bc:	f7ff fd30 	bl	8006020 <usb_send_button_press>
+ 800628e:	2004      	movs	r0, #4
+ 8006290:	f000 fa78 	bl	8006784 <usb_send_button_press>
   }
 
   if ((port == B6_GPIO_Port) && (pin == B6_Pin)) {
- 80065c0:	687b      	ldr	r3, [r7, #4]
- 80065c2:	4a1c      	ldr	r2, [pc, #112]	; (8006634 <on_button_press+0x100>)
- 80065c4:	4293      	cmp	r3, r2
- 80065c6:	d108      	bne.n	80065da <on_button_press+0xa6>
- 80065c8:	683b      	ldr	r3, [r7, #0]
- 80065ca:	2b04      	cmp	r3, #4
- 80065cc:	d105      	bne.n	80065da <on_button_press+0xa6>
+ 8006294:	687b      	ldr	r3, [r7, #4]
+ 8006296:	4a1c      	ldr	r2, [pc, #112]	; (8006308 <on_button_press+0x100>)
+ 8006298:	4293      	cmp	r3, r2
+ 800629a:	d108      	bne.n	80062ae <on_button_press+0xa6>
+ 800629c:	683b      	ldr	r3, [r7, #0]
+ 800629e:	2b04      	cmp	r3, #4
+ 80062a0:	d105      	bne.n	80062ae <on_button_press+0xa6>
     printString("B6");
- 80065ce:	481c      	ldr	r0, [pc, #112]	; (8006640 <on_button_press+0x10c>)
- 80065d0:	f7ff ff7a 	bl	80064c8 <printString>
+ 80062a2:	481c      	ldr	r0, [pc, #112]	; (8006314 <on_button_press+0x10c>)
+ 80062a4:	f000 f9cc 	bl	8006640 <printString>
     usb_send_button_press(5);
- 80065d4:	2005      	movs	r0, #5
- 80065d6:	f7ff fd23 	bl	8006020 <usb_send_button_press>
+ 80062a8:	2005      	movs	r0, #5
+ 80062aa:	f000 fa6b 	bl	8006784 <usb_send_button_press>
   }
 
   if ((port == B7_GPIO_Port) && (pin == B7_Pin)) {
- 80065da:	687b      	ldr	r3, [r7, #4]
- 80065dc:	4a15      	ldr	r2, [pc, #84]	; (8006634 <on_button_press+0x100>)
- 80065de:	4293      	cmp	r3, r2
- 80065e0:	d108      	bne.n	80065f4 <on_button_press+0xc0>
- 80065e2:	683b      	ldr	r3, [r7, #0]
- 80065e4:	2b08      	cmp	r3, #8
- 80065e6:	d105      	bne.n	80065f4 <on_button_press+0xc0>
+ 80062ae:	687b      	ldr	r3, [r7, #4]
+ 80062b0:	4a15      	ldr	r2, [pc, #84]	; (8006308 <on_button_press+0x100>)
+ 80062b2:	4293      	cmp	r3, r2
+ 80062b4:	d108      	bne.n	80062c8 <on_button_press+0xc0>
+ 80062b6:	683b      	ldr	r3, [r7, #0]
+ 80062b8:	2b08      	cmp	r3, #8
+ 80062ba:	d105      	bne.n	80062c8 <on_button_press+0xc0>
     printString("B7");
- 80065e8:	4816      	ldr	r0, [pc, #88]	; (8006644 <on_button_press+0x110>)
- 80065ea:	f7ff ff6d 	bl	80064c8 <printString>
+ 80062bc:	4816      	ldr	r0, [pc, #88]	; (8006318 <on_button_press+0x110>)
+ 80062be:	f000 f9bf 	bl	8006640 <printString>
     usb_send_button_press(6);
- 80065ee:	2006      	movs	r0, #6
- 80065f0:	f7ff fd16 	bl	8006020 <usb_send_button_press>
+ 80062c2:	2006      	movs	r0, #6
+ 80062c4:	f000 fa5e 	bl	8006784 <usb_send_button_press>
   }
 
   if ((port == S3_GPIO_Port) && (pin == S3_Pin)) printString("S3");
- 80065f4:	687b      	ldr	r3, [r7, #4]
- 80065f6:	4a14      	ldr	r2, [pc, #80]	; (8006648 <on_button_press+0x114>)
- 80065f8:	4293      	cmp	r3, r2
- 80065fa:	d105      	bne.n	8006608 <on_button_press+0xd4>
- 80065fc:	683b      	ldr	r3, [r7, #0]
- 80065fe:	2b01      	cmp	r3, #1
- 8006600:	d102      	bne.n	8006608 <on_button_press+0xd4>
- 8006602:	4812      	ldr	r0, [pc, #72]	; (800664c <on_button_press+0x118>)
- 8006604:	f7ff ff60 	bl	80064c8 <printString>
+ 80062c8:	687b      	ldr	r3, [r7, #4]
+ 80062ca:	4a14      	ldr	r2, [pc, #80]	; (800631c <on_button_press+0x114>)
+ 80062cc:	4293      	cmp	r3, r2
+ 80062ce:	d105      	bne.n	80062dc <on_button_press+0xd4>
+ 80062d0:	683b      	ldr	r3, [r7, #0]
+ 80062d2:	2b01      	cmp	r3, #1
+ 80062d4:	d102      	bne.n	80062dc <on_button_press+0xd4>
+ 80062d6:	4812      	ldr	r0, [pc, #72]	; (8006320 <on_button_press+0x118>)
+ 80062d8:	f000 f9b2 	bl	8006640 <printString>
   if ((port == S4_GPIO_Port) && (pin == S4_Pin)) printString("S4");
- 8006608:	687b      	ldr	r3, [r7, #4]
- 800660a:	4a0f      	ldr	r2, [pc, #60]	; (8006648 <on_button_press+0x114>)
- 800660c:	4293      	cmp	r3, r2
- 800660e:	d105      	bne.n	800661c <on_button_press+0xe8>
- 8006610:	683b      	ldr	r3, [r7, #0]
- 8006612:	2b02      	cmp	r3, #2
- 8006614:	d102      	bne.n	800661c <on_button_press+0xe8>
- 8006616:	480e      	ldr	r0, [pc, #56]	; (8006650 <on_button_press+0x11c>)
- 8006618:	f7ff ff56 	bl	80064c8 <printString>
+ 80062dc:	687b      	ldr	r3, [r7, #4]
+ 80062de:	4a0f      	ldr	r2, [pc, #60]	; (800631c <on_button_press+0x114>)
+ 80062e0:	4293      	cmp	r3, r2
+ 80062e2:	d105      	bne.n	80062f0 <on_button_press+0xe8>
+ 80062e4:	683b      	ldr	r3, [r7, #0]
+ 80062e6:	2b02      	cmp	r3, #2
+ 80062e8:	d102      	bne.n	80062f0 <on_button_press+0xe8>
+ 80062ea:	480e      	ldr	r0, [pc, #56]	; (8006324 <on_button_press+0x11c>)
+ 80062ec:	f000 f9a8 	bl	8006640 <printString>
 }
- 800661c:	bf00      	nop
- 800661e:	3708      	adds	r7, #8
- 8006620:	46bd      	mov	sp, r7
- 8006622:	bd80      	pop	{r7, pc}
- 8006624:	40020800 	.word	0x40020800
- 8006628:	080083c0 	.word	0x080083c0
- 800662c:	080083c4 	.word	0x080083c4
- 8006630:	080083c8 	.word	0x080083c8
- 8006634:	40020000 	.word	0x40020000
- 8006638:	080083cc 	.word	0x080083cc
- 800663c:	080083d0 	.word	0x080083d0
- 8006640:	080083d4 	.word	0x080083d4
- 8006644:	080083d8 	.word	0x080083d8
- 8006648:	40020400 	.word	0x40020400
- 800664c:	080083dc 	.word	0x080083dc
- 8006650:	080083e0 	.word	0x080083e0
+ 80062f0:	bf00      	nop
+ 80062f2:	3708      	adds	r7, #8
+ 80062f4:	46bd      	mov	sp, r7
+ 80062f6:	bd80      	pop	{r7, pc}
+ 80062f8:	40020800 	.word	0x40020800
+ 80062fc:	080083c0 	.word	0x080083c0
+ 8006300:	080083c4 	.word	0x080083c4
+ 8006304:	080083c8 	.word	0x080083c8
+ 8006308:	40020000 	.word	0x40020000
+ 800630c:	080083cc 	.word	0x080083cc
+ 8006310:	080083d0 	.word	0x080083d0
+ 8006314:	080083d4 	.word	0x080083d4
+ 8006318:	080083d8 	.word	0x080083d8
+ 800631c:	40020400 	.word	0x40020400
+ 8006320:	080083dc 	.word	0x080083dc
+ 8006324:	080083e0 	.word	0x080083e0
 
-08006654 <on_button_longpress>:
+08006328 <on_button_longpress>:
  * @param Registered button GPIO port that event is triggered.
  * @param Registered button GPIO pin that event is triggered.
  * @retval None.
  * TODO: user can add actions on button events here.
  */
 void on_button_longpress(BTN_GPIO_PORT_TYPE *port, BTN_GPIO_PIN_TYPE pin) {
- 8006654:	b580      	push	{r7, lr}
- 8006656:	b082      	sub	sp, #8
- 8006658:	af00      	add	r7, sp, #0
- 800665a:	6078      	str	r0, [r7, #4]
- 800665c:	6039      	str	r1, [r7, #0]
+ 8006328:	b580      	push	{r7, lr}
+ 800632a:	b082      	sub	sp, #8
+ 800632c:	af00      	add	r7, sp, #0
+ 800632e:	6078      	str	r0, [r7, #4]
+ 8006330:	6039      	str	r1, [r7, #0]
   if ((port == B1_GPIO_Port) && (pin == B1_Pin)) printString("B1 L");
- 800665e:	687b      	ldr	r3, [r7, #4]
- 8006660:	4a24      	ldr	r2, [pc, #144]	; (80066f4 <on_button_longpress+0xa0>)
- 8006662:	4293      	cmp	r3, r2
- 8006664:	d105      	bne.n	8006672 <on_button_longpress+0x1e>
- 8006666:	683b      	ldr	r3, [r7, #0]
- 8006668:	2b02      	cmp	r3, #2
- 800666a:	d102      	bne.n	8006672 <on_button_longpress+0x1e>
- 800666c:	4822      	ldr	r0, [pc, #136]	; (80066f8 <on_button_longpress+0xa4>)
- 800666e:	f7ff ff2b 	bl	80064c8 <printString>
+ 8006332:	687b      	ldr	r3, [r7, #4]
+ 8006334:	4a24      	ldr	r2, [pc, #144]	; (80063c8 <on_button_longpress+0xa0>)
+ 8006336:	4293      	cmp	r3, r2
+ 8006338:	d105      	bne.n	8006346 <on_button_longpress+0x1e>
+ 800633a:	683b      	ldr	r3, [r7, #0]
+ 800633c:	2b02      	cmp	r3, #2
+ 800633e:	d102      	bne.n	8006346 <on_button_longpress+0x1e>
+ 8006340:	4822      	ldr	r0, [pc, #136]	; (80063cc <on_button_longpress+0xa4>)
+ 8006342:	f000 f97d 	bl	8006640 <printString>
   if ((port == B2_GPIO_Port) && (pin == B2_Pin)) printString("B2 L");
- 8006672:	687b      	ldr	r3, [r7, #4]
- 8006674:	4a1f      	ldr	r2, [pc, #124]	; (80066f4 <on_button_longpress+0xa0>)
- 8006676:	4293      	cmp	r3, r2
- 8006678:	d105      	bne.n	8006686 <on_button_longpress+0x32>
- 800667a:	683b      	ldr	r3, [r7, #0]
- 800667c:	2b04      	cmp	r3, #4
- 800667e:	d102      	bne.n	8006686 <on_button_longpress+0x32>
- 8006680:	481e      	ldr	r0, [pc, #120]	; (80066fc <on_button_longpress+0xa8>)
- 8006682:	f7ff ff21 	bl	80064c8 <printString>
+ 8006346:	687b      	ldr	r3, [r7, #4]
+ 8006348:	4a1f      	ldr	r2, [pc, #124]	; (80063c8 <on_button_longpress+0xa0>)
+ 800634a:	4293      	cmp	r3, r2
+ 800634c:	d105      	bne.n	800635a <on_button_longpress+0x32>
+ 800634e:	683b      	ldr	r3, [r7, #0]
+ 8006350:	2b04      	cmp	r3, #4
+ 8006352:	d102      	bne.n	800635a <on_button_longpress+0x32>
+ 8006354:	481e      	ldr	r0, [pc, #120]	; (80063d0 <on_button_longpress+0xa8>)
+ 8006356:	f000 f973 	bl	8006640 <printString>
   if ((port == B3_GPIO_Port) && (pin == B3_Pin)) printString("B3 L");
- 8006686:	687b      	ldr	r3, [r7, #4]
- 8006688:	4a1a      	ldr	r2, [pc, #104]	; (80066f4 <on_button_longpress+0xa0>)
- 800668a:	4293      	cmp	r3, r2
- 800668c:	d105      	bne.n	800669a <on_button_longpress+0x46>
- 800668e:	683b      	ldr	r3, [r7, #0]
- 8006690:	2b08      	cmp	r3, #8
- 8006692:	d102      	bne.n	800669a <on_button_longpress+0x46>
- 8006694:	481a      	ldr	r0, [pc, #104]	; (8006700 <on_button_longpress+0xac>)
- 8006696:	f7ff ff17 	bl	80064c8 <printString>
+ 800635a:	687b      	ldr	r3, [r7, #4]
+ 800635c:	4a1a      	ldr	r2, [pc, #104]	; (80063c8 <on_button_longpress+0xa0>)
+ 800635e:	4293      	cmp	r3, r2
+ 8006360:	d105      	bne.n	800636e <on_button_longpress+0x46>
+ 8006362:	683b      	ldr	r3, [r7, #0]
+ 8006364:	2b08      	cmp	r3, #8
+ 8006366:	d102      	bne.n	800636e <on_button_longpress+0x46>
+ 8006368:	481a      	ldr	r0, [pc, #104]	; (80063d4 <on_button_longpress+0xac>)
+ 800636a:	f000 f969 	bl	8006640 <printString>
   if ((port == B4_GPIO_Port) && (pin == B4_Pin)) printString("B4 L");
- 800669a:	687b      	ldr	r3, [r7, #4]
- 800669c:	4a19      	ldr	r2, [pc, #100]	; (8006704 <on_button_longpress+0xb0>)
- 800669e:	4293      	cmp	r3, r2
- 80066a0:	d105      	bne.n	80066ae <on_button_longpress+0x5a>
- 80066a2:	683b      	ldr	r3, [r7, #0]
- 80066a4:	2b01      	cmp	r3, #1
- 80066a6:	d102      	bne.n	80066ae <on_button_longpress+0x5a>
- 80066a8:	4817      	ldr	r0, [pc, #92]	; (8006708 <on_button_longpress+0xb4>)
- 80066aa:	f7ff ff0d 	bl	80064c8 <printString>
+ 800636e:	687b      	ldr	r3, [r7, #4]
+ 8006370:	4a19      	ldr	r2, [pc, #100]	; (80063d8 <on_button_longpress+0xb0>)
+ 8006372:	4293      	cmp	r3, r2
+ 8006374:	d105      	bne.n	8006382 <on_button_longpress+0x5a>
+ 8006376:	683b      	ldr	r3, [r7, #0]
+ 8006378:	2b01      	cmp	r3, #1
+ 800637a:	d102      	bne.n	8006382 <on_button_longpress+0x5a>
+ 800637c:	4817      	ldr	r0, [pc, #92]	; (80063dc <on_button_longpress+0xb4>)
+ 800637e:	f000 f95f 	bl	8006640 <printString>
   if ((port == B5_GPIO_Port) && (pin == B5_Pin)) printString("B5 L");
- 80066ae:	687b      	ldr	r3, [r7, #4]
- 80066b0:	4a14      	ldr	r2, [pc, #80]	; (8006704 <on_button_longpress+0xb0>)
- 80066b2:	4293      	cmp	r3, r2
- 80066b4:	d105      	bne.n	80066c2 <on_button_longpress+0x6e>
- 80066b6:	683b      	ldr	r3, [r7, #0]
- 80066b8:	2b02      	cmp	r3, #2
- 80066ba:	d102      	bne.n	80066c2 <on_button_longpress+0x6e>
- 80066bc:	4813      	ldr	r0, [pc, #76]	; (800670c <on_button_longpress+0xb8>)
- 80066be:	f7ff ff03 	bl	80064c8 <printString>
+ 8006382:	687b      	ldr	r3, [r7, #4]
+ 8006384:	4a14      	ldr	r2, [pc, #80]	; (80063d8 <on_button_longpress+0xb0>)
+ 8006386:	4293      	cmp	r3, r2
+ 8006388:	d105      	bne.n	8006396 <on_button_longpress+0x6e>
+ 800638a:	683b      	ldr	r3, [r7, #0]
+ 800638c:	2b02      	cmp	r3, #2
+ 800638e:	d102      	bne.n	8006396 <on_button_longpress+0x6e>
+ 8006390:	4813      	ldr	r0, [pc, #76]	; (80063e0 <on_button_longpress+0xb8>)
+ 8006392:	f000 f955 	bl	8006640 <printString>
   if ((port == B6_GPIO_Port) && (pin == B6_Pin)) printString("B6 L");
- 80066c2:	687b      	ldr	r3, [r7, #4]
- 80066c4:	4a0f      	ldr	r2, [pc, #60]	; (8006704 <on_button_longpress+0xb0>)
- 80066c6:	4293      	cmp	r3, r2
- 80066c8:	d105      	bne.n	80066d6 <on_button_longpress+0x82>
- 80066ca:	683b      	ldr	r3, [r7, #0]
- 80066cc:	2b04      	cmp	r3, #4
- 80066ce:	d102      	bne.n	80066d6 <on_button_longpress+0x82>
- 80066d0:	480f      	ldr	r0, [pc, #60]	; (8006710 <on_button_longpress+0xbc>)
- 80066d2:	f7ff fef9 	bl	80064c8 <printString>
+ 8006396:	687b      	ldr	r3, [r7, #4]
+ 8006398:	4a0f      	ldr	r2, [pc, #60]	; (80063d8 <on_button_longpress+0xb0>)
+ 800639a:	4293      	cmp	r3, r2
+ 800639c:	d105      	bne.n	80063aa <on_button_longpress+0x82>
+ 800639e:	683b      	ldr	r3, [r7, #0]
+ 80063a0:	2b04      	cmp	r3, #4
+ 80063a2:	d102      	bne.n	80063aa <on_button_longpress+0x82>
+ 80063a4:	480f      	ldr	r0, [pc, #60]	; (80063e4 <on_button_longpress+0xbc>)
+ 80063a6:	f000 f94b 	bl	8006640 <printString>
   if ((port == B7_GPIO_Port) && (pin == B7_Pin)) printString("B7 L");
- 80066d6:	687b      	ldr	r3, [r7, #4]
- 80066d8:	4a0a      	ldr	r2, [pc, #40]	; (8006704 <on_button_longpress+0xb0>)
- 80066da:	4293      	cmp	r3, r2
- 80066dc:	d105      	bne.n	80066ea <on_button_longpress+0x96>
- 80066de:	683b      	ldr	r3, [r7, #0]
- 80066e0:	2b08      	cmp	r3, #8
- 80066e2:	d102      	bne.n	80066ea <on_button_longpress+0x96>
- 80066e4:	480b      	ldr	r0, [pc, #44]	; (8006714 <on_button_longpress+0xc0>)
- 80066e6:	f7ff feef 	bl	80064c8 <printString>
+ 80063aa:	687b      	ldr	r3, [r7, #4]
+ 80063ac:	4a0a      	ldr	r2, [pc, #40]	; (80063d8 <on_button_longpress+0xb0>)
+ 80063ae:	4293      	cmp	r3, r2
+ 80063b0:	d105      	bne.n	80063be <on_button_longpress+0x96>
+ 80063b2:	683b      	ldr	r3, [r7, #0]
+ 80063b4:	2b08      	cmp	r3, #8
+ 80063b6:	d102      	bne.n	80063be <on_button_longpress+0x96>
+ 80063b8:	480b      	ldr	r0, [pc, #44]	; (80063e8 <on_button_longpress+0xc0>)
+ 80063ba:	f000 f941 	bl	8006640 <printString>
 }
- 80066ea:	bf00      	nop
- 80066ec:	3708      	adds	r7, #8
- 80066ee:	46bd      	mov	sp, r7
- 80066f0:	bd80      	pop	{r7, pc}
- 80066f2:	bf00      	nop
- 80066f4:	40020800 	.word	0x40020800
- 80066f8:	080083e4 	.word	0x080083e4
- 80066fc:	080083ec 	.word	0x080083ec
- 8006700:	080083f4 	.word	0x080083f4
- 8006704:	40020000 	.word	0x40020000
- 8006708:	080083fc 	.word	0x080083fc
- 800670c:	08008404 	.word	0x08008404
- 8006710:	0800840c 	.word	0x0800840c
- 8006714:	08008414 	.word	0x08008414
+ 80063be:	bf00      	nop
+ 80063c0:	3708      	adds	r7, #8
+ 80063c2:	46bd      	mov	sp, r7
+ 80063c4:	bd80      	pop	{r7, pc}
+ 80063c6:	bf00      	nop
+ 80063c8:	40020800 	.word	0x40020800
+ 80063cc:	080083e4 	.word	0x080083e4
+ 80063d0:	080083ec 	.word	0x080083ec
+ 80063d4:	080083f4 	.word	0x080083f4
+ 80063d8:	40020000 	.word	0x40020000
+ 80063dc:	080083fc 	.word	0x080083fc
+ 80063e0:	08008404 	.word	0x08008404
+ 80063e4:	0800840c 	.word	0x0800840c
+ 80063e8:	08008414 	.word	0x08008414
 
-08006718 <LL_USART_IsActiveFlag_TXE>:
+080063ec <ring_buffer_init>:
+ * @brief Initialize a ring buffer
+ * @param *rbd - pointer to the ring buffer descriptor
+ * @param size - ring buffer size in number of bytes
+ * @return RB_ERROR, RB_OK
+ */
+rb_status_t ring_buffer_init(rb_att_t *rbd, uint32_t size){
+ 80063ec:	b580      	push	{r7, lr}
+ 80063ee:	b082      	sub	sp, #8
+ 80063f0:	af00      	add	r7, sp, #0
+ 80063f2:	6078      	str	r0, [r7, #4]
+ 80063f4:	6039      	str	r1, [r7, #0]
+  rbd->status = RB_ERROR;
+ 80063f6:	687b      	ldr	r3, [r7, #4]
+ 80063f8:	2201      	movs	r2, #1
+ 80063fa:	751a      	strb	r2, [r3, #20]
+  
+  
+  if(rbd != NULL){  // rbd must not be pointer to nowhere
+ 80063fc:	687b      	ldr	r3, [r7, #4]
+ 80063fe:	2b00      	cmp	r3, #0
+ 8006400:	d01a      	beq.n	8006438 <ring_buffer_init+0x4c>
+    rbd->buff = calloc(size, sizeof(uint8_t)); // allocate memory of "size" bytes, set all values to 0.
+ 8006402:	2101      	movs	r1, #1
+ 8006404:	6838      	ldr	r0, [r7, #0]
+ 8006406:	f000 f9d3 	bl	80067b0 <calloc>
+ 800640a:	4603      	mov	r3, r0
+ 800640c:	461a      	mov	r2, r3
+ 800640e:	687b      	ldr	r3, [r7, #4]
+ 8006410:	601a      	str	r2, [r3, #0]
+    //rbd->buff = malloc(size * sizeof(uint8_t)); // Use this instead of calloc() if you don't wish to set all values to 0 by default.
+
+    if(rbd->buff != NULL){  // buff must not be pointer to nowhere
+ 8006412:	687b      	ldr	r3, [r7, #4]
+ 8006414:	681b      	ldr	r3, [r3, #0]
+ 8006416:	2b00      	cmp	r3, #0
+ 8006418:	d00e      	beq.n	8006438 <ring_buffer_init+0x4c>
+      rbd->n_elem = size;
+ 800641a:	687b      	ldr	r3, [r7, #4]
+ 800641c:	683a      	ldr	r2, [r7, #0]
+ 800641e:	605a      	str	r2, [r3, #4]
+
+      // Initialize the ring buffer internal variables
+      rbd->head = 0;
+ 8006420:	687b      	ldr	r3, [r7, #4]
+ 8006422:	2200      	movs	r2, #0
+ 8006424:	609a      	str	r2, [r3, #8]
+      rbd->tail = 0;
+ 8006426:	687b      	ldr	r3, [r7, #4]
+ 8006428:	2200      	movs	r2, #0
+ 800642a:	60da      	str	r2, [r3, #12]
+      rbd->count = 0;
+ 800642c:	687b      	ldr	r3, [r7, #4]
+ 800642e:	2200      	movs	r2, #0
+ 8006430:	611a      	str	r2, [r3, #16]
+      
+      rbd->status = RB_OK;
+ 8006432:	687b      	ldr	r3, [r7, #4]
+ 8006434:	2200      	movs	r2, #0
+ 8006436:	751a      	strb	r2, [r3, #20]
+    }
+  }
+
+  return rbd->status;
+ 8006438:	687b      	ldr	r3, [r7, #4]
+ 800643a:	7d1b      	ldrb	r3, [r3, #20]
+ 800643c:	b2db      	uxtb	r3, r3
+}
+ 800643e:	4618      	mov	r0, r3
+ 8006440:	3708      	adds	r7, #8
+ 8006442:	46bd      	mov	sp, r7
+ 8006444:	bd80      	pop	{r7, pc}
+
+08006446 <ring_buffer_put>:
+ * @param *rbd - pointer to the ring buffer descriptor
+ * @param data - the data to add
+ * @param num - number of elements to add
+ * @return RB_NOT_ENOUGH_SPACE, RB_OK, RB_ERROR
+ */
+rb_status_t ring_buffer_put(rb_att_t *rbd, uint8_t *data, uint32_t num){
+ 8006446:	b580      	push	{r7, lr}
+ 8006448:	b086      	sub	sp, #24
+ 800644a:	af00      	add	r7, sp, #0
+ 800644c:	60f8      	str	r0, [r7, #12]
+ 800644e:	60b9      	str	r1, [r7, #8]
+ 8006450:	607a      	str	r2, [r7, #4]
+  rb_status_t status = RB_ERROR;
+ 8006452:	2301      	movs	r3, #1
+ 8006454:	75fb      	strb	r3, [r7, #23]
+  uint32_t num_to_end = 0; // number of elements to the last buffer element (including current one (head))
+ 8006456:	2300      	movs	r3, #0
+ 8006458:	613b      	str	r3, [r7, #16]
+  
+  if(rbd != NULL){  // rbd must not be a pointer to nowhere
+ 800645a:	68fb      	ldr	r3, [r7, #12]
+ 800645c:	2b00      	cmp	r3, #0
+ 800645e:	d055      	beq.n	800650c <ring_buffer_put+0xc6>
+    if(ring_buffer_free_elements(rbd) >= num){  // is there enough space in buffer for num of data
+ 8006460:	68f8      	ldr	r0, [r7, #12]
+ 8006462:	f000 f8c6 	bl	80065f2 <ring_buffer_free_elements>
+ 8006466:	4602      	mov	r2, r0
+ 8006468:	687b      	ldr	r3, [r7, #4]
+ 800646a:	4293      	cmp	r3, r2
+ 800646c:	d84c      	bhi.n	8006508 <ring_buffer_put+0xc2>
+      if(rbd->head >= rbd->n_elem){ // reset ring buffer head
+ 800646e:	68fb      	ldr	r3, [r7, #12]
+ 8006470:	689a      	ldr	r2, [r3, #8]
+ 8006472:	68fb      	ldr	r3, [r7, #12]
+ 8006474:	685b      	ldr	r3, [r3, #4]
+ 8006476:	429a      	cmp	r2, r3
+ 8006478:	d302      	bcc.n	8006480 <ring_buffer_put+0x3a>
+        rbd->head = 0;
+ 800647a:	68fb      	ldr	r3, [r7, #12]
+ 800647c:	2200      	movs	r2, #0
+ 800647e:	609a      	str	r2, [r3, #8]
+      }
+      
+      num_to_end = rbd->n_elem - rbd->head; // that many data can be written into buffer, before reaching buffer last element
+ 8006480:	68fb      	ldr	r3, [r7, #12]
+ 8006482:	685a      	ldr	r2, [r3, #4]
+ 8006484:	68fb      	ldr	r3, [r7, #12]
+ 8006486:	689b      	ldr	r3, [r3, #8]
+ 8006488:	1ad3      	subs	r3, r2, r3
+ 800648a:	613b      	str	r3, [r7, #16]
+      if(num_to_end < num){ // if there is not enough space for "num" of data before reaching buffer last element
+ 800648c:	693a      	ldr	r2, [r7, #16]
+ 800648e:	687b      	ldr	r3, [r7, #4]
+ 8006490:	429a      	cmp	r2, r3
+ 8006492:	d220      	bcs.n	80064d6 <ring_buffer_put+0x90>
+        memcpy(&(rbd->buff[rbd->head]), data, num_to_end); //write to buffer partial data
+ 8006494:	68fb      	ldr	r3, [r7, #12]
+ 8006496:	681a      	ldr	r2, [r3, #0]
+ 8006498:	68fb      	ldr	r3, [r7, #12]
+ 800649a:	689b      	ldr	r3, [r3, #8]
+ 800649c:	4413      	add	r3, r2
+ 800649e:	693a      	ldr	r2, [r7, #16]
+ 80064a0:	68b9      	ldr	r1, [r7, #8]
+ 80064a2:	4618      	mov	r0, r3
+ 80064a4:	f000 f9b6 	bl	8006814 <memcpy>
+        memcpy(rbd->buff, (data + num_to_end), (num - num_to_end)); //write to buffer rest of the data, starting with buffer[0]
+ 80064a8:	68fb      	ldr	r3, [r7, #12]
+ 80064aa:	6818      	ldr	r0, [r3, #0]
+ 80064ac:	68ba      	ldr	r2, [r7, #8]
+ 80064ae:	693b      	ldr	r3, [r7, #16]
+ 80064b0:	18d1      	adds	r1, r2, r3
+ 80064b2:	687a      	ldr	r2, [r7, #4]
+ 80064b4:	693b      	ldr	r3, [r7, #16]
+ 80064b6:	1ad3      	subs	r3, r2, r3
+ 80064b8:	461a      	mov	r2, r3
+ 80064ba:	f000 f9ab 	bl	8006814 <memcpy>
+        
+        rbd->head = num - num_to_end;  //head
+ 80064be:	687a      	ldr	r2, [r7, #4]
+ 80064c0:	693b      	ldr	r3, [r7, #16]
+ 80064c2:	1ad2      	subs	r2, r2, r3
+ 80064c4:	68fb      	ldr	r3, [r7, #12]
+ 80064c6:	609a      	str	r2, [r3, #8]
+        rbd->count = rbd->count + num; // increment counter for num of data
+ 80064c8:	68fb      	ldr	r3, [r7, #12]
+ 80064ca:	691a      	ldr	r2, [r3, #16]
+ 80064cc:	687b      	ldr	r3, [r7, #4]
+ 80064ce:	441a      	add	r2, r3
+ 80064d0:	68fb      	ldr	r3, [r7, #12]
+ 80064d2:	611a      	str	r2, [r3, #16]
+ 80064d4:	e015      	b.n	8006502 <ring_buffer_put+0xbc>
+      }
+      else{ // there is enough space before reaching buffer's last element
+        memcpy(&(rbd->buff[rbd->head]), data, num); //write to buffer all num of data in one piece
+ 80064d6:	68fb      	ldr	r3, [r7, #12]
+ 80064d8:	681a      	ldr	r2, [r3, #0]
+ 80064da:	68fb      	ldr	r3, [r7, #12]
+ 80064dc:	689b      	ldr	r3, [r3, #8]
+ 80064de:	4413      	add	r3, r2
+ 80064e0:	687a      	ldr	r2, [r7, #4]
+ 80064e2:	68b9      	ldr	r1, [r7, #8]
+ 80064e4:	4618      	mov	r0, r3
+ 80064e6:	f000 f995 	bl	8006814 <memcpy>
+        
+        rbd->head = rbd->head + num;  // increment head
+ 80064ea:	68fb      	ldr	r3, [r7, #12]
+ 80064ec:	689a      	ldr	r2, [r3, #8]
+ 80064ee:	687b      	ldr	r3, [r7, #4]
+ 80064f0:	441a      	add	r2, r3
+ 80064f2:	68fb      	ldr	r3, [r7, #12]
+ 80064f4:	609a      	str	r2, [r3, #8]
+        rbd->count = rbd->count + num; // increment counter for num of data
+ 80064f6:	68fb      	ldr	r3, [r7, #12]
+ 80064f8:	691a      	ldr	r2, [r3, #16]
+ 80064fa:	687b      	ldr	r3, [r7, #4]
+ 80064fc:	441a      	add	r2, r3
+ 80064fe:	68fb      	ldr	r3, [r7, #12]
+ 8006500:	611a      	str	r2, [r3, #16]
+      }
+      
+      status = RB_OK;
+ 8006502:	2300      	movs	r3, #0
+ 8006504:	75fb      	strb	r3, [r7, #23]
+ 8006506:	e001      	b.n	800650c <ring_buffer_put+0xc6>
+    }
+    else{ // there is not enough space in buffer for num of data
+      status = RB_NOT_ENOUGH_SPACE;
+ 8006508:	2304      	movs	r3, #4
+ 800650a:	75fb      	strb	r3, [r7, #23]
+    }
+  }
+  rbd->status = status;
+ 800650c:	68fb      	ldr	r3, [r7, #12]
+ 800650e:	7dfa      	ldrb	r2, [r7, #23]
+ 8006510:	751a      	strb	r2, [r3, #20]
+  return status;
+ 8006512:	7dfb      	ldrb	r3, [r7, #23]
+}
+ 8006514:	4618      	mov	r0, r3
+ 8006516:	3718      	adds	r7, #24
+ 8006518:	46bd      	mov	sp, r7
+ 800651a:	bd80      	pop	{r7, pc}
+
+0800651c <ring_buffer_get>:
+ * @param *rbd - pointer to the ring buffer descriptor
+ * @param data - pointer to store the data
+ * @param num - number of elements to read
+ * @return RB_NOT_ENOUGH_DATA, RB_OK, RB_ERROR
+ */
+rb_status_t ring_buffer_get(rb_att_t *rbd, uint8_t *data, uint32_t num){
+ 800651c:	b580      	push	{r7, lr}
+ 800651e:	b086      	sub	sp, #24
+ 8006520:	af00      	add	r7, sp, #0
+ 8006522:	60f8      	str	r0, [r7, #12]
+ 8006524:	60b9      	str	r1, [r7, #8]
+ 8006526:	607a      	str	r2, [r7, #4]
+  rb_status_t status = RB_ERROR;
+ 8006528:	2301      	movs	r3, #1
+ 800652a:	75fb      	strb	r3, [r7, #23]
+  uint32_t num_to_end = 0;
+ 800652c:	2300      	movs	r3, #0
+ 800652e:	613b      	str	r3, [r7, #16]
+  
+  if(rbd != NULL){  // rbd must not be a pointer to nowhere
+ 8006530:	68fb      	ldr	r3, [r7, #12]
+ 8006532:	2b00      	cmp	r3, #0
+ 8006534:	d055      	beq.n	80065e2 <ring_buffer_get+0xc6>
+    if(ring_buffer_size(rbd) >= num){ //buffer is not empty and there is at least num of data stored
+ 8006536:	68f8      	ldr	r0, [r7, #12]
+ 8006538:	f000 f870 	bl	800661c <ring_buffer_size>
+ 800653c:	4602      	mov	r2, r0
+ 800653e:	687b      	ldr	r3, [r7, #4]
+ 8006540:	4293      	cmp	r3, r2
+ 8006542:	d84c      	bhi.n	80065de <ring_buffer_get+0xc2>
+      if(rbd->tail >= rbd->n_elem){ // reset ring buffer tail
+ 8006544:	68fb      	ldr	r3, [r7, #12]
+ 8006546:	68da      	ldr	r2, [r3, #12]
+ 8006548:	68fb      	ldr	r3, [r7, #12]
+ 800654a:	685b      	ldr	r3, [r3, #4]
+ 800654c:	429a      	cmp	r2, r3
+ 800654e:	d302      	bcc.n	8006556 <ring_buffer_get+0x3a>
+        rbd->tail = 0;
+ 8006550:	68fb      	ldr	r3, [r7, #12]
+ 8006552:	2200      	movs	r2, #0
+ 8006554:	60da      	str	r2, [r3, #12]
+      }
+      
+      num_to_end = rbd->n_elem - rbd->tail;
+ 8006556:	68fb      	ldr	r3, [r7, #12]
+ 8006558:	685a      	ldr	r2, [r3, #4]
+ 800655a:	68fb      	ldr	r3, [r7, #12]
+ 800655c:	68db      	ldr	r3, [r3, #12]
+ 800655e:	1ad3      	subs	r3, r2, r3
+ 8006560:	613b      	str	r3, [r7, #16]
+      if(num >= num_to_end){ // is there enough ("num") of data to read before reaching buffer last element
+ 8006562:	687a      	ldr	r2, [r7, #4]
+ 8006564:	693b      	ldr	r3, [r7, #16]
+ 8006566:	429a      	cmp	r2, r3
+ 8006568:	d320      	bcc.n	80065ac <ring_buffer_get+0x90>
+        memcpy(data, &(rbd->buff[rbd->tail]), num_to_end); //read from buffer partial data
+ 800656a:	68fb      	ldr	r3, [r7, #12]
+ 800656c:	681a      	ldr	r2, [r3, #0]
+ 800656e:	68fb      	ldr	r3, [r7, #12]
+ 8006570:	68db      	ldr	r3, [r3, #12]
+ 8006572:	4413      	add	r3, r2
+ 8006574:	693a      	ldr	r2, [r7, #16]
+ 8006576:	4619      	mov	r1, r3
+ 8006578:	68b8      	ldr	r0, [r7, #8]
+ 800657a:	f000 f94b 	bl	8006814 <memcpy>
+        memcpy(data + num_to_end, rbd->buff, (num - num_to_end)); //read from buffer remaining partial data
+ 800657e:	68ba      	ldr	r2, [r7, #8]
+ 8006580:	693b      	ldr	r3, [r7, #16]
+ 8006582:	18d0      	adds	r0, r2, r3
+ 8006584:	68fb      	ldr	r3, [r7, #12]
+ 8006586:	6819      	ldr	r1, [r3, #0]
+ 8006588:	687a      	ldr	r2, [r7, #4]
+ 800658a:	693b      	ldr	r3, [r7, #16]
+ 800658c:	1ad3      	subs	r3, r2, r3
+ 800658e:	461a      	mov	r2, r3
+ 8006590:	f000 f940 	bl	8006814 <memcpy>
+          
+        rbd->tail = num - num_to_end;  // tail increment
+ 8006594:	687a      	ldr	r2, [r7, #4]
+ 8006596:	693b      	ldr	r3, [r7, #16]
+ 8006598:	1ad2      	subs	r2, r2, r3
+ 800659a:	68fb      	ldr	r3, [r7, #12]
+ 800659c:	60da      	str	r2, [r3, #12]
+        rbd->count = rbd->count - num; // decrement counter for num of data
+ 800659e:	68fb      	ldr	r3, [r7, #12]
+ 80065a0:	691a      	ldr	r2, [r3, #16]
+ 80065a2:	687b      	ldr	r3, [r7, #4]
+ 80065a4:	1ad2      	subs	r2, r2, r3
+ 80065a6:	68fb      	ldr	r3, [r7, #12]
+ 80065a8:	611a      	str	r2, [r3, #16]
+ 80065aa:	e015      	b.n	80065d8 <ring_buffer_get+0xbc>
+      }
+      else{ //there is enough data to be read before reaching last element of ring buffer
+        memcpy(data, &(rbd->buff[rbd->tail]), num); //read from buffer
+ 80065ac:	68fb      	ldr	r3, [r7, #12]
+ 80065ae:	681a      	ldr	r2, [r3, #0]
+ 80065b0:	68fb      	ldr	r3, [r7, #12]
+ 80065b2:	68db      	ldr	r3, [r3, #12]
+ 80065b4:	4413      	add	r3, r2
+ 80065b6:	687a      	ldr	r2, [r7, #4]
+ 80065b8:	4619      	mov	r1, r3
+ 80065ba:	68b8      	ldr	r0, [r7, #8]
+ 80065bc:	f000 f92a 	bl	8006814 <memcpy>
+        
+        rbd->tail = rbd->tail + num;  // increment tail
+ 80065c0:	68fb      	ldr	r3, [r7, #12]
+ 80065c2:	68da      	ldr	r2, [r3, #12]
+ 80065c4:	687b      	ldr	r3, [r7, #4]
+ 80065c6:	441a      	add	r2, r3
+ 80065c8:	68fb      	ldr	r3, [r7, #12]
+ 80065ca:	60da      	str	r2, [r3, #12]
+        rbd->count = rbd->count - num; // decrement counter for num of data
+ 80065cc:	68fb      	ldr	r3, [r7, #12]
+ 80065ce:	691a      	ldr	r2, [r3, #16]
+ 80065d0:	687b      	ldr	r3, [r7, #4]
+ 80065d2:	1ad2      	subs	r2, r2, r3
+ 80065d4:	68fb      	ldr	r3, [r7, #12]
+ 80065d6:	611a      	str	r2, [r3, #16]
+      }
+      status = RB_OK;
+ 80065d8:	2300      	movs	r3, #0
+ 80065da:	75fb      	strb	r3, [r7, #23]
+ 80065dc:	e001      	b.n	80065e2 <ring_buffer_get+0xc6>
+    }
+    else{
+      status = RB_NOT_ENOUGH_DATA;
+ 80065de:	2305      	movs	r3, #5
+ 80065e0:	75fb      	strb	r3, [r7, #23]
+    }
+  }
+  
+  rbd->status = status;
+ 80065e2:	68fb      	ldr	r3, [r7, #12]
+ 80065e4:	7dfa      	ldrb	r2, [r7, #23]
+ 80065e6:	751a      	strb	r2, [r3, #20]
+  return status;
+ 80065e8:	7dfb      	ldrb	r3, [r7, #23]
+}
+ 80065ea:	4618      	mov	r0, r3
+ 80065ec:	3718      	adds	r7, #24
+ 80065ee:	46bd      	mov	sp, r7
+ 80065f0:	bd80      	pop	{r7, pc}
+
+080065f2 <ring_buffer_free_elements>:
+/**
+ * @brief Check how many elements can be written to the buffer
+ * @param *rbd - pointer to the ring buffer descriptor
+ * @return 0 on invalid parameter, number of elements otherwise
+ */
+uint32_t ring_buffer_free_elements(rb_att_t *rbd){
+ 80065f2:	b480      	push	{r7}
+ 80065f4:	b085      	sub	sp, #20
+ 80065f6:	af00      	add	r7, sp, #0
+ 80065f8:	6078      	str	r0, [r7, #4]
+  uint32_t ret_val = 0;
+ 80065fa:	2300      	movs	r3, #0
+ 80065fc:	60fb      	str	r3, [r7, #12]
+  
+  if(rbd != NULL){  // rbd must not be a pointer to nowhere
+ 80065fe:	687b      	ldr	r3, [r7, #4]
+ 8006600:	2b00      	cmp	r3, #0
+ 8006602:	d005      	beq.n	8006610 <ring_buffer_free_elements+0x1e>
+   ret_val = rbd->n_elem - rbd->count;
+ 8006604:	687b      	ldr	r3, [r7, #4]
+ 8006606:	685a      	ldr	r2, [r3, #4]
+ 8006608:	687b      	ldr	r3, [r7, #4]
+ 800660a:	691b      	ldr	r3, [r3, #16]
+ 800660c:	1ad3      	subs	r3, r2, r3
+ 800660e:	60fb      	str	r3, [r7, #12]
+  }
+  
+  return ret_val;
+ 8006610:	68fb      	ldr	r3, [r7, #12]
+}
+ 8006612:	4618      	mov	r0, r3
+ 8006614:	3714      	adds	r7, #20
+ 8006616:	46bd      	mov	sp, r7
+ 8006618:	bc80      	pop	{r7}
+ 800661a:	4770      	bx	lr
+
+0800661c <ring_buffer_size>:
+/**
+ * @brief Get the number of bytes stored in ring buffer
+ * @param *rbd - pointer to the ring buffer descriptor
+ * @return 0 if invalid parameters, number of data stored in buffer otherwise
+ */
+uint32_t ring_buffer_size(rb_att_t *rbd){
+ 800661c:	b480      	push	{r7}
+ 800661e:	b085      	sub	sp, #20
+ 8006620:	af00      	add	r7, sp, #0
+ 8006622:	6078      	str	r0, [r7, #4]
+  uint32_t size = 0;
+ 8006624:	2300      	movs	r3, #0
+ 8006626:	60fb      	str	r3, [r7, #12]
+  
+  if(rbd != NULL){  // rbd must not be a pointer to nowhere
+ 8006628:	687b      	ldr	r3, [r7, #4]
+ 800662a:	2b00      	cmp	r3, #0
+ 800662c:	d002      	beq.n	8006634 <ring_buffer_size+0x18>
+    size = rbd->count;
+ 800662e:	687b      	ldr	r3, [r7, #4]
+ 8006630:	691b      	ldr	r3, [r3, #16]
+ 8006632:	60fb      	str	r3, [r7, #12]
+  }
+  
+  return size;
+ 8006634:	68fb      	ldr	r3, [r7, #12]
+}
+ 8006636:	4618      	mov	r0, r3
+ 8006638:	3714      	adds	r7, #20
+ 800663a:	46bd      	mov	sp, r7
+ 800663c:	bc80      	pop	{r7}
+ 800663e:	4770      	bx	lr
+
+08006640 <printString>:
+ * @brief Send/print readable character/string.
+ * @param pointer to a string data
+ * @example printString("test data");
+ * @retval None
+ */
+void printString(char *data) {
+ 8006640:	b580      	push	{r7, lr}
+ 8006642:	b082      	sub	sp, #8
+ 8006644:	af00      	add	r7, sp, #0
+ 8006646:	6078      	str	r0, [r7, #4]
+  send_data((uint8_t*) data, (uint16_t) strlen(data));
+ 8006648:	6878      	ldr	r0, [r7, #4]
+ 800664a:	f7f9 fd99 	bl	8000180 <strlen>
+ 800664e:	4603      	mov	r3, r0
+ 8006650:	b29b      	uxth	r3, r3
+ 8006652:	4619      	mov	r1, r3
+ 8006654:	6878      	ldr	r0, [r7, #4]
+ 8006656:	f000 f825 	bl	80066a4 <send_data>
+}
+ 800665a:	bf00      	nop
+ 800665c:	3708      	adds	r7, #8
+ 800665e:	46bd      	mov	sp, r7
+ 8006660:	bd80      	pop	{r7, pc}
+
+08006662 <LL_USART_IsActiveFlag_TXE>:
 {
- 8006718:	b480      	push	{r7}
- 800671a:	b083      	sub	sp, #12
- 800671c:	af00      	add	r7, sp, #0
- 800671e:	6078      	str	r0, [r7, #4]
+ 8006662:	b480      	push	{r7}
+ 8006664:	b083      	sub	sp, #12
+ 8006666:	af00      	add	r7, sp, #0
+ 8006668:	6078      	str	r0, [r7, #4]
   return (READ_BIT(USARTx->SR, USART_SR_TXE) == (USART_SR_TXE));
- 8006720:	687b      	ldr	r3, [r7, #4]
- 8006722:	681b      	ldr	r3, [r3, #0]
- 8006724:	f003 0380 	and.w	r3, r3, #128	; 0x80
- 8006728:	2b80      	cmp	r3, #128	; 0x80
- 800672a:	bf0c      	ite	eq
- 800672c:	2301      	moveq	r3, #1
- 800672e:	2300      	movne	r3, #0
- 8006730:	b2db      	uxtb	r3, r3
+ 800666a:	687b      	ldr	r3, [r7, #4]
+ 800666c:	681b      	ldr	r3, [r3, #0]
+ 800666e:	f003 0380 	and.w	r3, r3, #128	; 0x80
+ 8006672:	2b80      	cmp	r3, #128	; 0x80
+ 8006674:	bf0c      	ite	eq
+ 8006676:	2301      	moveq	r3, #1
+ 8006678:	2300      	movne	r3, #0
+ 800667a:	b2db      	uxtb	r3, r3
 }
- 8006732:	4618      	mov	r0, r3
- 8006734:	370c      	adds	r7, #12
- 8006736:	46bd      	mov	sp, r7
- 8006738:	bc80      	pop	{r7}
- 800673a:	4770      	bx	lr
+ 800667c:	4618      	mov	r0, r3
+ 800667e:	370c      	adds	r7, #12
+ 8006680:	46bd      	mov	sp, r7
+ 8006682:	bc80      	pop	{r7}
+ 8006684:	4770      	bx	lr
 
-0800673c <LL_USART_TransmitData8>:
+08006686 <LL_USART_TransmitData8>:
   * @param  USARTx USART Instance
   * @param  Value between Min_Data=0x00 and Max_Data=0xFF
   * @retval None
   */
 __STATIC_INLINE void LL_USART_TransmitData8(USART_TypeDef *USARTx, uint8_t Value)
 {
- 800673c:	b480      	push	{r7}
- 800673e:	b083      	sub	sp, #12
- 8006740:	af00      	add	r7, sp, #0
- 8006742:	6078      	str	r0, [r7, #4]
- 8006744:	460b      	mov	r3, r1
- 8006746:	70fb      	strb	r3, [r7, #3]
+ 8006686:	b480      	push	{r7}
+ 8006688:	b083      	sub	sp, #12
+ 800668a:	af00      	add	r7, sp, #0
+ 800668c:	6078      	str	r0, [r7, #4]
+ 800668e:	460b      	mov	r3, r1
+ 8006690:	70fb      	strb	r3, [r7, #3]
   USARTx->DR = Value;
- 8006748:	78fa      	ldrb	r2, [r7, #3]
- 800674a:	687b      	ldr	r3, [r7, #4]
- 800674c:	605a      	str	r2, [r3, #4]
+ 8006692:	78fa      	ldrb	r2, [r7, #3]
+ 8006694:	687b      	ldr	r3, [r7, #4]
+ 8006696:	605a      	str	r2, [r3, #4]
 }
- 800674e:	bf00      	nop
- 8006750:	370c      	adds	r7, #12
- 8006752:	46bd      	mov	sp, r7
- 8006754:	bc80      	pop	{r7}
- 8006756:	4770      	bx	lr
+ 8006698:	bf00      	nop
+ 800669a:	370c      	adds	r7, #12
+ 800669c:	46bd      	mov	sp, r7
+ 800669e:	bc80      	pop	{r7}
+ 80066a0:	4770      	bx	lr
+	...
 
-08006758 <send_data>:
+080066a4 <send_data>:
  * @param pointer to a data
  * @param size of the data (number of bytes to send)
  * @retval None
  * TODO: implement hardware specific UART handling.
  */
 void send_data(uint8_t *data, uint16_t size) {
- 8006758:	b580      	push	{r7, lr}
- 800675a:	b084      	sub	sp, #16
- 800675c:	af00      	add	r7, sp, #0
- 800675e:	6078      	str	r0, [r7, #4]
- 8006760:	460b      	mov	r3, r1
- 8006762:	807b      	strh	r3, [r7, #2]
+ 80066a4:	b580      	push	{r7, lr}
+ 80066a6:	b084      	sub	sp, #16
+ 80066a8:	af00      	add	r7, sp, #0
+ 80066aa:	6078      	str	r0, [r7, #4]
+ 80066ac:	460b      	mov	r3, r1
+ 80066ae:	807b      	strh	r3, [r7, #2]
   uint16_t byte;
 
   for (byte = 0; byte < size; byte++) {
- 8006764:	2300      	movs	r3, #0
- 8006766:	81fb      	strh	r3, [r7, #14]
- 8006768:	e018      	b.n	800679c <send_data+0x44>
+ 80066b0:	2300      	movs	r3, #0
+ 80066b2:	81fb      	strh	r3, [r7, #14]
+ 80066b4:	e018      	b.n	80066e8 <send_data+0x44>
     // wait while TX data register is not empty
     while (!LL_USART_IsActiveFlag_TXE(USART1)) {
- 800676a:	bf00      	nop
- 800676c:	480f      	ldr	r0, [pc, #60]	; (80067ac <send_data+0x54>)
- 800676e:	f7ff ffd3 	bl	8006718 <LL_USART_IsActiveFlag_TXE>
- 8006772:	4603      	mov	r3, r0
- 8006774:	2b00      	cmp	r3, #0
- 8006776:	d0f9      	beq.n	800676c <send_data+0x14>
+ 80066b6:	bf00      	nop
+ 80066b8:	480f      	ldr	r0, [pc, #60]	; (80066f8 <send_data+0x54>)
+ 80066ba:	f7ff ffd2 	bl	8006662 <LL_USART_IsActiveFlag_TXE>
+ 80066be:	4603      	mov	r3, r0
+ 80066c0:	2b00      	cmp	r3, #0
+ 80066c2:	d0f9      	beq.n	80066b8 <send_data+0x14>
     }
 
     LL_USART_TransmitData8(USART1, *(data + byte));
- 8006778:	89fb      	ldrh	r3, [r7, #14]
- 800677a:	687a      	ldr	r2, [r7, #4]
- 800677c:	4413      	add	r3, r2
- 800677e:	781b      	ldrb	r3, [r3, #0]
- 8006780:	4619      	mov	r1, r3
- 8006782:	480a      	ldr	r0, [pc, #40]	; (80067ac <send_data+0x54>)
- 8006784:	f7ff ffda 	bl	800673c <LL_USART_TransmitData8>
+ 80066c4:	89fb      	ldrh	r3, [r7, #14]
+ 80066c6:	687a      	ldr	r2, [r7, #4]
+ 80066c8:	4413      	add	r3, r2
+ 80066ca:	781b      	ldrb	r3, [r3, #0]
+ 80066cc:	4619      	mov	r1, r3
+ 80066ce:	480a      	ldr	r0, [pc, #40]	; (80066f8 <send_data+0x54>)
+ 80066d0:	f7ff ffd9 	bl	8006686 <LL_USART_TransmitData8>
 
     // wait while TX data register is not empty
     while (!LL_USART_IsActiveFlag_TXE(USART1)) {
- 8006788:	bf00      	nop
- 800678a:	4808      	ldr	r0, [pc, #32]	; (80067ac <send_data+0x54>)
- 800678c:	f7ff ffc4 	bl	8006718 <LL_USART_IsActiveFlag_TXE>
- 8006790:	4603      	mov	r3, r0
- 8006792:	2b00      	cmp	r3, #0
- 8006794:	d0f9      	beq.n	800678a <send_data+0x32>
+ 80066d4:	bf00      	nop
+ 80066d6:	4808      	ldr	r0, [pc, #32]	; (80066f8 <send_data+0x54>)
+ 80066d8:	f7ff ffc3 	bl	8006662 <LL_USART_IsActiveFlag_TXE>
+ 80066dc:	4603      	mov	r3, r0
+ 80066de:	2b00      	cmp	r3, #0
+ 80066e0:	d0f9      	beq.n	80066d6 <send_data+0x32>
   for (byte = 0; byte < size; byte++) {
- 8006796:	89fb      	ldrh	r3, [r7, #14]
- 8006798:	3301      	adds	r3, #1
- 800679a:	81fb      	strh	r3, [r7, #14]
- 800679c:	89fa      	ldrh	r2, [r7, #14]
- 800679e:	887b      	ldrh	r3, [r7, #2]
- 80067a0:	429a      	cmp	r2, r3
- 80067a2:	d3e2      	bcc.n	800676a <send_data+0x12>
+ 80066e2:	89fb      	ldrh	r3, [r7, #14]
+ 80066e4:	3301      	adds	r3, #1
+ 80066e6:	81fb      	strh	r3, [r7, #14]
+ 80066e8:	89fa      	ldrh	r2, [r7, #14]
+ 80066ea:	887b      	ldrh	r3, [r7, #2]
+ 80066ec:	429a      	cmp	r2, r3
+ 80066ee:	d3e2      	bcc.n	80066b6 <send_data+0x12>
     }
   }
 }
- 80067a4:	bf00      	nop
- 80067a6:	3710      	adds	r7, #16
- 80067a8:	46bd      	mov	sp, r7
- 80067aa:	bd80      	pop	{r7, pc}
- 80067ac:	40013800 	.word	0x40013800
+ 80066f0:	bf00      	nop
+ 80066f2:	3710      	adds	r7, #16
+ 80066f4:	46bd      	mov	sp, r7
+ 80066f6:	bd80      	pop	{r7, pc}
+ 80066f8:	40013800 	.word	0x40013800
+
+080066fc <handle_usb>:
+
+/*
+ * Periodically send USB report frames.
+ * If any keys are pressed == ring buffer length > 1, send key code. Otherwise, send 0x0.
+ */
+void handle_usb(void) {
+ 80066fc:	b580      	push	{r7, lr}
+ 80066fe:	b082      	sub	sp, #8
+ 8006700:	af00      	add	r7, sp, #0
+  uint8_t buff_data[1];
+  if (HAL_GetTick() < next_send_timestamp) {
+ 8006702:	f7fa ff99 	bl	8001638 <HAL_GetTick>
+ 8006706:	4602      	mov	r2, r0
+ 8006708:	4b1a      	ldr	r3, [pc, #104]	; (8006774 <handle_usb+0x78>)
+ 800670a:	681b      	ldr	r3, [r3, #0]
+ 800670c:	429a      	cmp	r2, r3
+ 800670e:	d32d      	bcc.n	800676c <handle_usb+0x70>
+    return;
+  }
+
+  rb_status_t rb_status = ring_buffer_get(&key_press_buff, buff_data, 1);
+ 8006710:	1d3b      	adds	r3, r7, #4
+ 8006712:	2201      	movs	r2, #1
+ 8006714:	4619      	mov	r1, r3
+ 8006716:	4818      	ldr	r0, [pc, #96]	; (8006778 <handle_usb+0x7c>)
+ 8006718:	f7ff ff00 	bl	800651c <ring_buffer_get>
+ 800671c:	4603      	mov	r3, r0
+ 800671e:	71fb      	strb	r3, [r7, #7]
+  if (rb_status == RB_OK) {
+ 8006720:	79fb      	ldrb	r3, [r7, #7]
+ 8006722:	2b00      	cmp	r3, #0
+ 8006724:	d10b      	bne.n	800673e <handle_usb+0x42>
+    data[0] = KEY_MOD_RCTRL | KEY_MOD_RSHIFT; // Modifier keys
+ 8006726:	4b15      	ldr	r3, [pc, #84]	; (800677c <handle_usb+0x80>)
+ 8006728:	2230      	movs	r2, #48	; 0x30
+ 800672a:	701a      	strb	r2, [r3, #0]
+
+    data[2] = buff_data[0]; // keycode 1
+ 800672c:	793a      	ldrb	r2, [r7, #4]
+ 800672e:	4b13      	ldr	r3, [pc, #76]	; (800677c <handle_usb+0x80>)
+ 8006730:	709a      	strb	r2, [r3, #2]
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
+ 8006732:	2208      	movs	r2, #8
+ 8006734:	4911      	ldr	r1, [pc, #68]	; (800677c <handle_usb+0x80>)
+ 8006736:	4812      	ldr	r0, [pc, #72]	; (8006780 <handle_usb+0x84>)
+ 8006738:	f7fd ff74 	bl	8004624 <USBD_CUSTOM_HID_SendReport>
+ 800673c:	e00f      	b.n	800675e <handle_usb+0x62>
+  }
+  else {
+    data[0] = KEY_NONE; // Modifier keys
+ 800673e:	4b0f      	ldr	r3, [pc, #60]	; (800677c <handle_usb+0x80>)
+ 8006740:	2200      	movs	r2, #0
+ 8006742:	701a      	strb	r2, [r3, #0]
+    data[2] = KEY_NONE; // keycode 1
+ 8006744:	4b0d      	ldr	r3, [pc, #52]	; (800677c <handle_usb+0x80>)
+ 8006746:	2200      	movs	r2, #0
+ 8006748:	709a      	strb	r2, [r3, #2]
+    USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
+ 800674a:	2208      	movs	r2, #8
+ 800674c:	490b      	ldr	r1, [pc, #44]	; (800677c <handle_usb+0x80>)
+ 800674e:	480c      	ldr	r0, [pc, #48]	; (8006780 <handle_usb+0x84>)
+ 8006750:	f7fd ff68 	bl	8004624 <USBD_CUSTOM_HID_SendReport>
+
+    if (rb_status == RB_ERROR) {
+ 8006754:	79fb      	ldrb	r3, [r7, #7]
+ 8006756:	2b01      	cmp	r3, #1
+ 8006758:	d101      	bne.n	800675e <handle_usb+0x62>
+      Error_Handler();
+ 800675a:	f7fa fc9f 	bl	800109c <Error_Handler>
+    }
+  }
+
+  next_send_timestamp = HAL_GetTick() + CUSTOM_HID_FS_BINTERVAL;
+ 800675e:	f7fa ff6b 	bl	8001638 <HAL_GetTick>
+ 8006762:	4603      	mov	r3, r0
+ 8006764:	3305      	adds	r3, #5
+ 8006766:	4a03      	ldr	r2, [pc, #12]	; (8006774 <handle_usb+0x78>)
+ 8006768:	6013      	str	r3, [r2, #0]
+ 800676a:	e000      	b.n	800676e <handle_usb+0x72>
+    return;
+ 800676c:	bf00      	nop
+
+}
+ 800676e:	3708      	adds	r7, #8
+ 8006770:	46bd      	mov	sp, r7
+ 8006772:	bd80      	pop	{r7, pc}
+ 8006774:	20000384 	.word	0x20000384
+ 8006778:	20000398 	.word	0x20000398
+ 800677c:	20000388 	.word	0x20000388
+ 8006780:	200003b4 	.word	0x200003b4
+
+08006784 <usb_send_button_press>:
+
+/*
+ * Add button action to USB buffer, which is handled by handle_usb().
+ */
+void usb_send_button_press(uint8_t btn_num) {
+ 8006784:	b580      	push	{r7, lr}
+ 8006786:	b082      	sub	sp, #8
+ 8006788:	af00      	add	r7, sp, #0
+ 800678a:	4603      	mov	r3, r0
+ 800678c:	71fb      	strb	r3, [r7, #7]
+  btn_num = btn_num + BASE_KEY_NUM;
+ 800678e:	79fb      	ldrb	r3, [r7, #7]
+ 8006790:	3368      	adds	r3, #104	; 0x68
+ 8006792:	b2db      	uxtb	r3, r3
+ 8006794:	71fb      	strb	r3, [r7, #7]
+
+  ring_buffer_put(&key_press_buff, (uint8_t*) &btn_num, 1);
+ 8006796:	1dfb      	adds	r3, r7, #7
+ 8006798:	2201      	movs	r2, #1
+ 800679a:	4619      	mov	r1, r3
+ 800679c:	4803      	ldr	r0, [pc, #12]	; (80067ac <usb_send_button_press+0x28>)
+ 800679e:	f7ff fe52 	bl	8006446 <ring_buffer_put>
+}
+ 80067a2:	bf00      	nop
+ 80067a4:	3708      	adds	r7, #8
+ 80067a6:	46bd      	mov	sp, r7
+ 80067a8:	bd80      	pop	{r7, pc}
+ 80067aa:	bf00      	nop
+ 80067ac:	20000398 	.word	0x20000398
 
 080067b0 <calloc>:
  80067b0:	4b02      	ldr	r3, [pc, #8]	; (80067bc <calloc+0xc>)

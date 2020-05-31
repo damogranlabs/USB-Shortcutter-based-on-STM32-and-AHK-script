@@ -8,8 +8,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include user_stm32l1xx_libs/subdir.mk
--include user_common_libs/subdir.mk
 -include user/subdir.mk
 -include USB_DEVICE/Target/subdir.mk
 -include USB_DEVICE/App/subdir.mk
