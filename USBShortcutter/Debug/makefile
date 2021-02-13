@@ -20,12 +20,23 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
 endif
 endif
 
 -include ../makefile.defs
+
+BUILD_ARTIFACT_NAME := USBShortcutter
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX := 
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
@@ -42,11 +53,14 @@ USBShortcutter.bin \
 
 
 # All Target
-all: USBShortcutter.elf secondary-outputs
+all: main-build
+
+# Main-build Target
+main-build: USBShortcutter.elf secondary-outputs
 
 # Tool invocations
-USBShortcutter.elf: $(OBJS) $(USER_OBJS) D:\Stromarija\STM32\STM32L1xx\Projects\USBShortcutter\STM32L100RCTX_FLASH.ld
-	arm-none-eabi-gcc -o "USBShortcutter.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Stromarija\STM32\STM32L1xx\Projects\USBShortcutter\STM32L100RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBShortcutter.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+USBShortcutter.elf: $(OBJS) $(USER_OBJS) D:\Stromarija\GIT\USBShortcutterSTM32AHK\USBShortcutter\STM32L100RCTX_FLASH.ld
+	arm-none-eabi-gcc -o "USBShortcutter.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Stromarija\GIT\USBShortcutterSTM32AHK\USBShortcutter\STM32L100RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USBShortcutter.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -72,7 +86,14 @@ clean:
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
-.PHONY: all clean dependents
+fail-specified-linker-script-missing:
+	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
+	@exit 2
+
+warn-no-linker-script-specified:
+	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
+
+.PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
 .SECONDARY:
 
 -include ../makefile.targets

@@ -1,13 +1,13 @@
 #SingleInstance force
 
-; ctrl + shift + [F13 - F19]
-^+F13::chooseHandler(0)
-^+F14::chooseHandler(1)
-^+F15::chooseHandler(2)
-^+F16::chooseHandler(3)
-^+F17::chooseHandler(4)
-^+F18::chooseHandler(5)
-^+F19::chooseHandler(6)
+; ctrl + shift + [F18 - F24]
+F18::chooseHandler(0)
+F19::chooseHandler(1)
+F20::chooseHandler(2)
+F21::chooseHandler(3)
+F22::chooseHandler(4)
+F23::chooseHandler(5)
+F24::chooseHandler(6)
 
 chooseHandler(keyNum){
     Winget,AppName,ProcessName,A ; A = active window
@@ -32,11 +32,8 @@ actionHandler_VSCode(keyNum){
         Send, !+r ; alt + shift + r: reveal in file explorer
     }
     if (keyNum = 1){
-        Send, ^+p ; ctrl + shit + p
         Send, !+f ; alt + shift + f: format document
     }
-    
-    
 }
 
 actionHandler_Reaper(keyNum){

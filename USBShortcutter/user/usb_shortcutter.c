@@ -9,7 +9,7 @@
 
 #define USB_REPORT_DATA_SIZE 8
 
-#define BASE_KEY_NUM KEY_F13
+#define BASE_KEY_NUM KEY_F18
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
 
@@ -30,13 +30,12 @@ void handle_usb(void) {
 
   rb_status_t rb_status = ring_buffer_get(&key_press_buff, buff_data, 1);
   if (rb_status == RB_OK) {
-    data[0] = KEY_MOD_RCTRL | KEY_MOD_RSHIFT; // Modifier keys
-
+    // avoid using hotkeys if possible since there can be a collision if multiple devices
+    // are toggling modifier keys at once
     data[2] = buff_data[0]; // keycode 1
     USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
   }
   else {
-    data[0] = KEY_NONE; // Modifier keys
     data[2] = KEY_NONE; // keycode 1
     USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, data, USB_REPORT_DATA_SIZE);
 
