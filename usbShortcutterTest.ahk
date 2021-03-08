@@ -1,6 +1,6 @@
 #SingleInstance force
 
-; ctrl + shift + [F18 - F24]
+; F18 - F24
 F18::chooseHandler(0)
 F19::chooseHandler(1)
 F20::chooseHandler(2)
